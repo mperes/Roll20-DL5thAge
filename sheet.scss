@@ -31,7 +31,6 @@
 
 .sheet-character-sheet {
   height: 100%;
-  overflow-y: scroll;
   position: relative;
   font-family: sans-serif;
   font-size: 14px;
@@ -96,6 +95,8 @@ input {
     left: 50%;
     padding: 0 5px;
     transform: translate(-50%,-50%);
+    color: #ab3131;
+    font-weight: 600;
   }
   
   label {
@@ -272,6 +273,15 @@ input {
   border-radius: 5x;
   margin-bottom: 0;
   text-align: left;
+  position: relative;
+  pointer-events: all;
+  label:after {
+    content: none;
+  }
+  .sheet-steps, .sheet-navigation {
+    position: relative;
+    z-index: 1;
+  }
   .sheet-steps > div {
     display: none;
   }
@@ -289,6 +299,7 @@ input {
     font-weight: bold;
     border-bottom: 1px solid #CCC;
     background: transparent;
+    pointer-events: none;
   }
   h3 {
     margin: 10px 0;
@@ -296,12 +307,34 @@ input {
   p {
     margin-top: 10px;
   }
-  @for $i from 1 through 7 {
-    input[name="attr_spell-step"][value="#{$i}"] ~ .sheet-steps {
-      .sheet-step-#{$i} {
+  @for $i from 1 through 9 {
+    input[name="attr_spell_step"][value="#{$i}"] ~ .sheet-steps {
+      .sheet-step-#{$i}:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
         display: block;
       }
     }
+  }
+  @for $i from 0 through 2 {
+    input[name="attr_spell_step"][value="6"] ~ input[name="attr_spell_area_of_effect"][value="#{$i}"] ~ .sheet-steps {
+      .sheet-step-6.sheet-#{$i} {
+        display: block;
+      }
+    }
+  }
+  @for $i from 0 through 2 {
+    input[name="attr_spell_step"][value="8"] ~ input[name="attr_spell_effect"][value="#{$i}"] ~ .sheet-steps {
+      .sheet-step-8.sheet-#{$i} {
+        display: block;
+      }
+    }
+  }
+
+  input[type="radio"] {
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  label {
+    margin-top: 10px;
   }
   .sheet-attribute-pick {
     display: flex;
@@ -311,6 +344,7 @@ input {
       flex-basis: 50%;
     }
     label {
+      margin-top: 0px;
     }
     span {
       text-align: right;
@@ -320,7 +354,7 @@ input {
     }
     input {
       margin-right: 5px;
-      vertical-align: text-top;
+      vertical-align: middle;
     }
     &:not(:first-child) {
       margin-top: 10px;
@@ -345,15 +379,15 @@ input {
   }
 }
 .sheet-blocker {
-  background:white;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
+  background: rgba(0,0,0,0.5);
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -5px;
+  left: -5px;
   z-index: 1;
   cursor: pointer;
+  pointer-events: all;
 }
 
 .sheet-blocking-modal {
@@ -363,16 +397,14 @@ input {
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  background: rgba(0,0,0,0.5);
+  background: transparent;
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
-  left: -999999px;
+  left: 0;
   z-index: 1;
-}
-
-input[name="attr_modal"][value="0"] ~ .sheet-blocking-modal {
+  pointer-events: none;
 }
 
 .sheet-design-spell {
@@ -386,16 +418,88 @@ input[name="attr_modal"][value="0"] ~ .sheet-blocking-modal {
   color: white;
 }
 
-.sheet-hack {
-  position: fixed;
-  top: 50%;
-  left: -999999px;
-  z-index: 10;
+input[name="attr_designing_spell"][value="0"] ~ .sheet-blocking-modal {
+    display: none;
 }
 
-.sheet-blocking-modal:focus-within {
-  .sheet-hack {
-    left: 50%;
+.sheet-step-1 {
+  input {
+    border-bottom: 1px solid #DDD!important;
+    padding: 10px 0;
+    margin: 5px 0 20px 0;
   }
-  left: 0;
+}
+
+button.sheet-save {
+  display: none;
+}
+
+input[name="attr_spell_step"][value="9"] ~ .sheet-navigation {
+  button.sheet-save {
+    display: block;
+  }
+  button.sheet-next {
+    display: none;
+  }
+}
+
+.sheet-spells {
+  width: calc(100% + 10px);
+  margin-left: -5px;
+  .repcontainer {
+    display:flex;
+    flex-direction: row-reverse;
+    .repitem {
+      flex-grow: 1;
+      flex-basis: 50%;
+      padding: 10px;
+      border: 1px solid #DDD;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 10px 5px;
+      input, textarea {
+        width: 100%;
+        padding: 0;
+        border: 0;
+        &:focus {
+          padding: 5px;
+          border: 1px solid #ccc;
+        }
+      }
+      textarea {
+        position: absolute;
+        left: 10px;
+        opacity: 0;
+      }
+      textarea + span {
+        display: block;
+      }
+      textarea:focus {
+        position: relative;
+        left: auto;
+        opacity: 1;
+      }
+      textarea:focus + span {
+        display: none;
+      }
+
+    }
+  }
+  .repcontrol {
+    display: none;
+  }
+}
+
+textarea {
+  margin-bottom: -5px!important;
+}
+
+span.sheet-max {
+  margin-left: 5px;
+  &:before {
+    content: '(';
+  }
+  &:after {
+    content: ')';
+  }
 }

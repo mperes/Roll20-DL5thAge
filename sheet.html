@@ -1,323 +1,341 @@
 
-<input name="attr_modal" type="hidden" value="1"/>
+<input name="attr_designing_spell" type="hidden" value="0"/>
 <div class="sheet-blocking-modal">
-  <input class="sheet-hack" name="attr_hack" type="text" required="required"/>
   <div class="sheet-group sheet-modal">
     <h2>designing spells</h2>
-    <input name="attr_spell-step" type="hidden" value="1"/>
-    <input name="attr_spell-area-of-effect" type="hidden" value="a"/>
-    <input name="attr_spell-effect" type="hidden" value="a"/>
+    <input name="attr_spell_step" type="hidden" value="1"/>
+    <input name="attr_spell_cost" type="hidden" value="0"/>
+    <input name="attr_spell_area_of_effect" type="hidden" value="0"/>
+    <input name="attr_spell_effect" type="hidden" value="0"/>
     <div class="sheet-steps">
       <div class="sheet-step-1">
+        <h3>spell name</h3>
+        <input class="sheet-align-left" name="attr_spell_name" type="text" value="My Spell"/>
+      </div>
+      <div class="sheet-step-2">
         <h3>invocation time</h3>
         <div class="sheet-options">
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-invocation-time" type="radio" value="0+1"/>30 minutes
-            </label><span class="cost">0 point(s)</span>
-          </div>
-          <div class="sheet-row sheet-attribute-pick">
-            <label>
-              <input name="attr_spell-invocation-time" type="radio" value="1+1"/>20 minutes
+              <input name="attr_spell_invocation_time" type="radio" value="30 minutes,1" checked="checked"/>30 minutes
             </label><span class="cost">1 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-invocation-time" type="radio" value="2+1"/>10 minutes
+              <input name="attr_spell_invocation_time" type="radio" value="20 minutes,2"/>20 minutes
             </label><span class="cost">2 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-invocation-time" type="radio" value="3+1"/>1 minute
+              <input name="attr_spell_invocation_time" type="radio" value="10 minutes,3"/>10 minutes
             </label><span class="cost">3 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-invocation-time" type="radio" value="4+1"/>instant
+              <input name="attr_spell_invocation_time" type="radio" value="1 minute,4"/>1 minute
             </label><span class="cost">4 point(s)</span>
+          </div>
+          <div class="sheet-row sheet-attribute-pick">
+            <label>
+              <input name="attr_spell_invocation_time" type="radio" value="instant,5"/>instant
+            </label><span class="cost">5 point(s)</span>
           </div>
         </div>
         <p>The longer a sorcerer or mystic takes to invoke a spell, the easier it becomes to cast it correctly (therefore, the lower the difficulty rating). Those who try to rush their magic are prone to errors and mishaps.</p>
       </div>
-      <div class="sheet-step-2">
+      <div class="sheet-step-3">
         <h3>range</h3>
         <div class="sheet-options">
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-range" type="radio" value="0+1"/>personal range
-            </label><span class="cost">0 point(s)</span>
-          </div>
-          <div class="sheet-row sheet-attribute-pick">
-            <label>
-              <input name="attr_spell-range" type="radio" value="1+1"/>melee range
+              <input name="attr_spell_range" type="radio" value="personal range,1" checked="checked"/>personal range
             </label><span class="cost">1 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-range" type="radio" value="2+1"/>near missile range
+              <input name="attr_spell_range" type="radio" value="melee range,2"/>melee range
             </label><span class="cost">2 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-range" type="radio" value="3+1"/>far missile range
+              <input name="attr_spell_range" type="radio" value="near missile range,3"/>near missile range
             </label><span class="cost">3 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-range" type="radio" value="4+1"/>artillery range
+              <input name="attr_spell_range" type="radio" value="far missile range,4"/>far missile range
             </label><span class="cost">4 point(s)</span>
+          </div>
+          <div class="sheet-row sheet-attribute-pick">
+            <label>
+              <input name="attr_spell_range" type="radio" value="artillery range,5"/>artillery range
+            </label><span class="cost">5 point(s)</span>
           </div>
         </div>
         <p>Spells required to function at very long ranges carry a much greater chance of failure and demand more effort (spell points). For instance, healing a comrade's wounds becomes much easier if you can lay your hands upon him than if you must heal him from some distance.</p>
       </div>
-      <div class="sheet-step-3">
+      <div class="sheet-step-4">
         <h3>duration</h3>
         <div class="sheet-options">
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-duration" type="radio" value="0+1"/>instant
-            </label><span class="cost">0 point(s)</span>
-          </div>
-          <div class="sheet-row sheet-attribute-pick">
-            <label>
-              <input name="attr_spell-duration" type="radio" value="1+1"/>1 minute
+              <input name="attr_spell_duration" type="radio" value="instant,1" checked="checked"/>instant
             </label><span class="cost">1 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-duration" type="radio" value="2+1"/>15 minutes
+              <input name="attr_spell_duration" type="radio" value="1 minute,2"/>1 minute
             </label><span class="cost">2 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-duration" type="radio" value="3+1"/>30 minutes
+              <input name="attr_spell_duration" type="radio" value="15 minutes,3"/>15 minutes
             </label><span class="cost">3 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-duration" type="radio" value="4+1"/>1 hour
+              <input name="attr_spell_duration" type="radio" value="30 minutes,4"/>30 minutes
             </label><span class="cost">4 point(s)</span>
+          </div>
+          <div class="sheet-row sheet-attribute-pick">
+            <label>
+              <input name="attr_spell_duration" type="radio" value="1 hour,5"/>1 hour
+            </label><span class="cost">5 point(s)</span>
           </div>
         </div>
         <p>The effects of some spells are over almost as soon as they have begun, while others linger for minutes or even an hour after casting. Of course, the longer a caster expects a spell to remain in effect, the more difficult it becomes to cast.</p>
       </div>
-      <div class="sheet-step-4">
+      <div class="sheet-step-5">
         <h3>area of effect</h3>
         <div class="sheet-options">
-          <input name="attr_spell-area-of-effect" type="radio" value="a"/>
-          <label>group area of effect</label>
-          <input name="attr_spell-area-of-effect" type="radio" value="b"/>
-          <label>place area of effect</label>
-          <input name="attr_spell-area-of-effect" type="radio" value="c"/>
-          <label>temporal area of effect</label>
+          <label>
+            <input name="attr_spell_area_of_effect" type="radio" value="0" checked="checked"/>group area of effect
+          </label>
+          <label>
+            <input name="attr_spell_area_of_effect" type="radio" value="1"/>place area of effect
+          </label>
+          <label> 
+            <input name="attr_spell_area_of_effect" type="radio" value="2"/>temporal area of effect
+          </label>
         </div>
         <p>The fourth aspect of a spell's design concerns the amount of area its effects cover. Spells designed to affect a single individual prove much easier to cast than those intended to destroy dozens.</p>
       </div>
-      <div class="sheet-step-5 sheet-a">
+      <div class="sheet-step-6 sheet-0">
         <h3>group areas of effect</h3>
         <div class="sheet-options">
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-group-areas-of-effect" type="radio" value="0+1"/>individual
-            </label><span class="cost">0 point(s)</span>
-          </div>
-          <div class="sheet-row sheet-attribute-pick">
-            <label>
-              <input name="attr_spell-group-areas-of-effect" type="radio" value="1+1"/>couple
+              <input name="attr_spell_group_areas_of_effect" type="radio" value="individual,1" checked="checked"/>individual
             </label><span class="cost">1 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-group-areas-of-effect" type="radio" value="2+1"/>small group (5 people)
+              <input name="attr_spell_group_areas_of_effect" type="radio" value="couple,2"/>couple
             </label><span class="cost">2 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-group-areas-of-effect" type="radio" value="3+1"/>large group (10 people)
+              <input name="attr_spell_group_areas_of_effect" type="radio" value="small group (5 people),3"/>small group (5 people)
             </label><span class="cost">3 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-group-areas-of-effect" type="radio" value="4+1"/>crowd (25 people)
+              <input name="attr_spell_group_areas_of_effect" type="radio" value="large group (10 people),4"/>large group (10 people)
             </label><span class="cost">4 point(s)</span>
+          </div>
+          <div class="sheet-row sheet-attribute-pick">
+            <label>
+              <input name="attr_spell_group_areas_of_effect" type="radio" value="crowd (25 people),5"/>crowd (25 people)
+            </label><span class="cost">5 point(s)</span>
           </div>
         </div>
         <p>The chart on the next page is appropriate for spells that affect people, from an individual to a group. The targets must remain more or less together, however, not scattered across an open field.</p>
       </div>
-      <div class="sheet-step-5 sheet-b">
+      <div class="sheet-step-6 sheet-1">
         <h3>place areas of effect</h3>
         <div class="sheet-options">
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-place-areas-of-effect" type="radio" value="0+1"/>individual
-            </label><span class="cost">0 point(s)</span>
-          </div>
-          <div class="sheet-row sheet-attribute-pick">
-            <label>
-              <input name="attr_spell-place-areas-of-effect" type="radio" value="1+1"/>small room
+              <input name="attr_spell_place_areas_of_effect" type="radio" value="individual,1" checked="checked"/>individual
             </label><span class="cost">1 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-place-areas-of-effect" type="radio" value="2+1"/>large room
+              <input name="attr_spell_place_areas_of_effect" type="radio" value="small room,2"/>small room
             </label><span class="cost">2 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-place-areas-of-effect" type="radio" value="3+1"/>small house
+              <input name="attr_spell_place_areas_of_effect" type="radio" value="large room,3"/>large room
             </label><span class="cost">3 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-place-areas-of-effect" type="radio" value="4+1"/>large house
+              <input name="attr_spell_place_areas_of_effect" type="radio" value="small house,4"/>small house
             </label><span class="cost">4 point(s)</span>
+          </div>
+          <div class="sheet-row sheet-attribute-pick">
+            <label>
+              <input name="attr_spell_place_areas_of_effect" type="radio" value="large house,5"/>large house
+            </label><span class="cost">5 point(s)</span>
           </div>
         </div>
         <p>If the caster can better define a spell's area of effect in terms of spatial size, the player should consult the following chart to determine this property's difficulty rating.</p>
       </div>
-      <div class="sheet-step-5 sheet-c">
+      <div class="sheet-step-6 sheet-2">
         <h3>temporal areas of effect</h3>
         <div class="sheet-options">
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-temporal-areas-of-effect" type="radio" value="0+1"/>1 minute
-            </label><span class="cost">0 point(s)</span>
-          </div>
-          <div class="sheet-row sheet-attribute-pick">
-            <label>
-              <input name="attr_spell-temporal-areas-of-effect" type="radio" value="1+1"/>1 hour
+              <input name="attr_spell_temporal_areas_of_effect" type="radio" value="1 minute,1" checked="checked"/>1 minute
             </label><span class="cost">1 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-temporal-areas-of-effect" type="radio" value="2+1"/>1 day
+              <input name="attr_spell_temporal_areas_of_effect" type="radio" value="1 hour,2"/>1 hour
             </label><span class="cost">2 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-temporal-areas-of-effect" type="radio" value="3+1"/>1 week
+              <input name="attr_spell_temporal_areas_of_effect" type="radio" value="1 day,3"/>1 day
             </label><span class="cost">3 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-temporal-areas-of-effect" type="radio" value="4+1"/>1 month
+              <input name="attr_spell_temporal_areas_of_effect" type="radio" value="1 week,4"/>1 week
             </label><span class="cost">4 point(s)</span>
+          </div>
+          <div class="sheet-row sheet-attribute-pick">
+            <label>
+              <input name="attr_spell_temporal_areas_of_effect" type="radio" value="1 month,5"/>1 month
+            </label><span class="cost">5 point(s)</span>
           </div>
         </div>
         <p>Divination spells sometimes look into the future or past in their quest for information. In such cases, the number of hours (or weeks) a sorcerer has to reach backward or forward for the view dictates the spell's area of effect.</p>
       </div>
-      <div class="sheet-step-6">
+      <div class="sheet-step-7">
         <h3>effect</h3>
         <div class="options">
-          <input name="attr_spell-effect" type="radio" value="a"/>
-          <label>numeric adjustments</label>
-          <input name="attr_spell-effect" type="radio" value="b"/>
-          <label>healing spells</label>
-          <input name="attr_spell-effect" type="radio" value="c"/>
-          <label>other spell effects</label>
+          <label>
+            <input name="attr_spell_effect" type="radio" value="0" checked="checked"/>numeric adjustments
+          </label>
+          <label>
+            <input name="attr_spell_effect" type="radio" value="1"/>healing spells
+          </label>
+          <label>
+            <input name="attr_spell_effect" type="radio" value="2"/>other spell effects
+          </label>
         </div>
         <p>The most difficult aspect of a spell to quantify is its effect. Nevertheless, the following tables provide appropriate difficulty ratings for various spell types.</p>
       </div>
-      <div class="sheet-step-7 sheet-a">
+      <div class="sheet-step-8 sheet-0">
         <h3>numeric adjustments</h3>
         <div class="sheet-options">
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-numeric-adjustments" type="radio" value="0+1"/>+/- 1 to 2 points
-            </label><span class="cost">0 point(s)</span>
-          </div>
-          <div class="sheet-row sheet-attribute-pick">
-            <label>
-              <input name="attr_spell-numeric-adjustments" type="radio" value="1+1"/>+/- 3 to 5 points
+              <input name="attr_spell_numeric_adjustments" type="radio" value="+/- 1 to 2 points,1" checked="checked"/>+/- 1 to 2 points
             </label><span class="cost">1 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-numeric-adjustments" type="radio" value="2+1"/>+/- 6 to 9 points
+              <input name="attr_spell_numeric_adjustments" type="radio" value="+/- 3 to 5 points,2"/>+/- 3 to 5 points
             </label><span class="cost">2 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-numeric-adjustments" type="radio" value="3+1"/>+/- 10 to 14 points
+              <input name="attr_spell_numeric_adjustments" type="radio" value="+/- 6 to 9 points,3"/>+/- 6 to 9 points
             </label><span class="cost">3 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-numeric-adjustments" type="radio" value="4+1"/>+/- 15 to 20 points
+              <input name="attr_spell_numeric_adjustments" type="radio" value="+/- 10 to 14 points,4"/>+/- 10 to 14 points
             </label><span class="cost">4 point(s)</span>
+          </div>
+          <div class="sheet-row sheet-attribute-pick">
+            <label>
+              <input name="attr_spell_numeric_adjustments" type="radio" value="+/- 15 to 20 points,5"/>+/- 15 to 20 points
+            </label><span class="cost">5 point(s)</span>
           </div>
         </div>
         <p>When a caster intends a spell to cause damage or offer defense against an attack, a player can rate the casting difficulty of its effects fairly easily. Whenever</p>
       </div>
-      <div class="sheet-step-7 sheet-b">
+      <div class="sheet-step-8 sheet-1">
         <h3>healing spells</h3>
         <div class="sheet-options">
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-healing-spells" type="radio" value="0+1"/>1 minute
-            </label><span class="cost">0 point(s)</span>
-          </div>
-          <div class="sheet-row sheet-attribute-pick">
-            <label>
-              <input name="attr_spell-healing-spells" type="radio" value="1+1"/>1 hour
+              <input name="attr_spell_healing_spells" type="radio" value="1 card/point,1" checked="checked"/>1 card/point
             </label><span class="cost">1 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-healing-spells" type="radio" value="2+1"/>1 day
+              <input name="attr_spell_healing_spells" type="radio" value="2 cards/point,2"/>2 cards/point
             </label><span class="cost">2 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-healing-spells" type="radio" value="3+1"/>1 week
+              <input name="attr_spell_healing_spells" type="radio" value="3 cards/point,3"/>3 cards/point
             </label><span class="cost">3 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-healing-spells" type="radio" value="4+1"/>1 month
+              <input name="attr_spell_healing_spells" type="radio" value="4 cards/point,4"/>4 cards/point
             </label><span class="cost">4 point(s)</span>
+          </div>
+          <div class="sheet-row sheet-attribute-pick">
+            <label>
+              <input name="attr_spell_healing_spells" type="radio" value="5 cards/point,5"/>5 cards/point
+            </label><span class="cost">5 point(s)</span>
           </div>
         </div>
         <p>One of the most valuable aspects of mystic magic is its curative ability. In game terms, this effect takes the form of returning lost cards to a hero's hand (or lost Endurance points to a character).</p>
       </div>
-      <div class="sheet-step-7 sheet-c">
+      <div class="sheet-step-8 sheet-2">
         <h3>other spell effects</h3>
         <div class="sheet-options">
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-other-spell-effects" type="radio" value="0+1"/>Irritating
-            </label><span class="cost">0 point(s)</span>
-          </div>
-          <div class="sheet-row sheet-attribute-pick">
-            <label>
-              <input name="attr_spell-other-spell-effects" type="radio" value="1+1"/>Troublesome
+              <input name="attr_spell_other_spell_effects" type="radio" value="Irritating,1" checked="checked"/>Irritating
             </label><span class="cost">1 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-other-spell-effects" type="radio" value="2+1"/>Hindering
+              <input name="attr_spell_other_spell_effects" type="radio" value="Troublesome,2"/>Troublesome
             </label><span class="cost">2 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-other-spell-effects" type="radio" value="3+1"/>Impeding
+              <input name="attr_spell_other_spell_effects" type="radio" value="Hindering,3"/>Hindering
             </label><span class="cost">3 point(s)</span>
           </div>
           <div class="sheet-row sheet-attribute-pick">
             <label>
-              <input name="attr_spell-other-spell-effects" type="radio" value="4+1"/>Painful
+              <input name="attr_spell_other_spell_effects" type="radio" value="Impeding,4"/>Impeding
             </label><span class="cost">4 point(s)</span>
+          </div>
+          <div class="sheet-row sheet-attribute-pick">
+            <label>
+              <input name="attr_spell_other_spell_effects" type="radio" value="Painful,5"/>Painful
+            </label><span class="cost">5 point(s)</span>
           </div>
         </div>
         <p>If the spell effect does not seem as easily defined as the above examples, the Narrator assigns it a difficulty rating based on his assessment of the spell's desired outcome.</p>
       </div>
+      <div class="sheet-step-9">
+        <h3>optional spell description</h3>
+        <textarea class="sheet-align-left" name="attr_spell_description"></textarea>
+      </div>
+    </div>
+    <div class="sheet-spell-cost">
+      <h3>spell cost: <span name="attr_spell_cost"></span></h3>
     </div>
     <div class="sheet-grid-container sheet-navigation">
       <div class="sheet-grid-col">
-        <button type="action" name="act_prev-step">Previous</button>
+        <button type="action" name="act_prev_step">Previous</button>
       </div>
       <div class="sheet-grid-col">
-        <button type="action" name="act_next-step">Next</button>
+        <button class="sheet-next" type="action" name="act_next_step">Next</button>
+        <button class="sheet-save" type="action" name="act_save">Save          </button>
       </div>
     </div>
   </div>
@@ -341,11 +359,11 @@
       </div>
       <div class="sheet-row sheet-attribute-with-card">
         <input class="sheet-align-left" name="attr_demeanor" type="text" placeholder="demeanor"/>
-        <input name="attr_demeanor-card" type="text" placeholder="card"/>
+        <input name="attr_demeanor_card" type="text" placeholder="card"/>
       </div>
       <div class="sheet-row sheet-attribute-with-card">
         <input class="sheet-align-left" name="attr_nature" type="text" placeholder="nature"/>
-        <input name="attr_nature-card" type="text" placeholder="card"/>
+        <input name="attr_nature_card" type="text" placeholder="card"/>
       </div>
     </div>
     <div class="sheet-group physical-description">
@@ -380,7 +398,7 @@
           </div>
         </div>
       </div>
-      <textarea class="sheet-distinguishing-features" name="attr_distinguishing-features" placeholder="Distinguishing Features" rows="5"></textarea>
+      <textarea class="sheet-distinguishing-features" name="attr_distinguishing_features" placeholder="Distinguishing Features" rows="5"></textarea>
     </div>
     <div class="sheet-group background">
       <h2>background</h2>
@@ -390,7 +408,7 @@
       </div>
       <div class="sheet-row sheet-attribute-simple">
         <label for="social status">social status</label>
-        <input name="attr_social-status" type="text"/>
+        <input name="attr_social_status" type="text"/>
       </div>
       <div class="sheet-row sheet-attribute-simple">
         <label for="reputation">reputation</label>
@@ -419,7 +437,7 @@
     </div>
     <div class="sheet-group">
       <h2>special abilities/limitations</h2>
-      <textarea class="sheet-special-abilities-and-limitations" name="attr_special-abilities-and-limitations" rows="5"></textarea>
+      <textarea class="sheet-special-abilities-and-limitations" name="attr_special_abilities_and_limitations" rows="5"></textarea>
     </div>
     <div class="sheet-group">
       <h2>treasures</h2>
@@ -442,11 +460,11 @@
             <div class="sheet-grid-col">
               <div class="sheet-row sheet-ability-code">
                 <div class="sheet-flex-container">
-                  <input type="radio" name="attr_agility-code" value="A"/>
-                  <input type="radio" name="attr_agility-code" value="B"/>
-                  <input type="radio" name="attr_agility-code" value="C"/>
-                  <input type="radio" name="attr_agility-code" value="D"/>
-                  <input type="radio" name="attr_agility-code" value="X"/>
+                  <input type="radio" name="attr_agility_code" value="A"/>
+                  <input type="radio" name="attr_agility_code" value="B"/>
+                  <input type="radio" name="attr_agility_code" value="C"/>
+                  <input type="radio" name="attr_agility_code" value="D"/>
+                  <input type="radio" name="attr_agility_code" value="X"/>
                 </div>
               </div>
             </div>
@@ -461,11 +479,11 @@
             <div class="sheet-grid-col">
               <div class="sheet-row sheet-ability-code">
                 <div class="sheet-flex-container">
-                  <input type="radio" name="attr_dexterity-code" value="A"/>
-                  <input type="radio" name="attr_dexterity-code" value="B"/>
-                  <input type="radio" name="attr_dexterity-code" value="C"/>
-                  <input type="radio" name="attr_dexterity-code" value="D"/>
-                  <input type="radio" name="attr_dexterity-code" value="X"/>
+                  <input type="radio" name="attr_dexterity_code" value="A"/>
+                  <input type="radio" name="attr_dexterity_code" value="B"/>
+                  <input type="radio" name="attr_dexterity_code" value="C"/>
+                  <input type="radio" name="attr_dexterity_code" value="D"/>
+                  <input type="radio" name="attr_dexterity_code" value="X"/>
                 </div>
               </div>
             </div>
@@ -483,11 +501,11 @@
             <div class="sheet-grid-col">
               <div class="sheet-row sheet-ability-code">
                 <div class="sheet-flex-container">
-                  <input type="radio" name="attr_endurance-code" value="A"/>
-                  <input type="radio" name="attr_endurance-code" value="B"/>
-                  <input type="radio" name="attr_endurance-code" value="C"/>
-                  <input type="radio" name="attr_endurance-code" value="D"/>
-                  <input type="radio" name="attr_endurance-code" value="X"/>
+                  <input type="radio" name="attr_endurance_code" value="A"/>
+                  <input type="radio" name="attr_endurance_code" value="B"/>
+                  <input type="radio" name="attr_endurance_code" value="C"/>
+                  <input type="radio" name="attr_endurance_code" value="D"/>
+                  <input type="radio" name="attr_endurance_code" value="X"/>
                 </div>
               </div>
             </div>
@@ -502,11 +520,11 @@
             <div class="sheet-grid-col">
               <div class="sheet-row sheet-ability-code">
                 <div class="sheet-flex-container">
-                  <input type="radio" name="attr_strength-code" value="A"/>
-                  <input type="radio" name="attr_strength-code" value="B"/>
-                  <input type="radio" name="attr_strength-code" value="C"/>
-                  <input type="radio" name="attr_strength-code" value="D"/>
-                  <input type="radio" name="attr_strength-code" value="X"/>
+                  <input type="radio" name="attr_strength_code" value="A"/>
+                  <input type="radio" name="attr_strength_code" value="B"/>
+                  <input type="radio" name="attr_strength_code" value="C"/>
+                  <input type="radio" name="attr_strength_code" value="D"/>
+                  <input type="radio" name="attr_strength_code" value="X"/>
                 </div>
               </div>
             </div>
@@ -524,11 +542,11 @@
             <div class="sheet-grid-col">
               <div class="sheet-row sheet-ability-code">
                 <div class="sheet-flex-container">
-                  <input type="radio" name="attr_reason-code" value="A"/>
-                  <input type="radio" name="attr_reason-code" value="B"/>
-                  <input type="radio" name="attr_reason-code" value="C"/>
-                  <input type="radio" name="attr_reason-code" value="D"/>
-                  <input type="radio" name="attr_reason-code" value="X"/>
+                  <input type="radio" name="attr_reason_code" value="A"/>
+                  <input type="radio" name="attr_reason_code" value="B"/>
+                  <input type="radio" name="attr_reason_code" value="C"/>
+                  <input type="radio" name="attr_reason_code" value="D"/>
+                  <input type="radio" name="attr_reason_code" value="X"/>
                 </div>
               </div>
             </div>
@@ -543,11 +561,11 @@
             <div class="sheet-grid-col">
               <div class="sheet-row sheet-ability-code">
                 <div class="sheet-flex-container">
-                  <input type="radio" name="attr_perception-code" value="A"/>
-                  <input type="radio" name="attr_perception-code" value="B"/>
-                  <input type="radio" name="attr_perception-code" value="C"/>
-                  <input type="radio" name="attr_perception-code" value="D"/>
-                  <input type="radio" name="attr_perception-code" value="X"/>
+                  <input type="radio" name="attr_perception_code" value="A"/>
+                  <input type="radio" name="attr_perception_code" value="B"/>
+                  <input type="radio" name="attr_perception_code" value="C"/>
+                  <input type="radio" name="attr_perception_code" value="D"/>
+                  <input type="radio" name="attr_perception_code" value="X"/>
                 </div>
               </div>
             </div>
@@ -565,11 +583,11 @@
             <div class="sheet-grid-col">
               <div class="sheet-row sheet-ability-code">
                 <div class="sheet-flex-container">
-                  <input type="radio" name="attr_spirit-code" value="A"/>
-                  <input type="radio" name="attr_spirit-code" value="B"/>
-                  <input type="radio" name="attr_spirit-code" value="C"/>
-                  <input type="radio" name="attr_spirit-code" value="D"/>
-                  <input type="radio" name="attr_spirit-code" value="X"/>
+                  <input type="radio" name="attr_spirit_code" value="A"/>
+                  <input type="radio" name="attr_spirit_code" value="B"/>
+                  <input type="radio" name="attr_spirit_code" value="C"/>
+                  <input type="radio" name="attr_spirit_code" value="D"/>
+                  <input type="radio" name="attr_spirit_code" value="X"/>
                 </div>
               </div>
             </div>
@@ -584,11 +602,11 @@
             <div class="sheet-grid-col">
               <div class="sheet-row sheet-ability-code">
                 <div class="sheet-flex-container">
-                  <input type="radio" name="attr_presence-code" value="A"/>
-                  <input type="radio" name="attr_presence-code" value="B"/>
-                  <input type="radio" name="attr_presence-code" value="C"/>
-                  <input type="radio" name="attr_presence-code" value="D"/>
-                  <input type="radio" name="attr_presence-code" value="X"/>
+                  <input type="radio" name="attr_presence_code" value="A"/>
+                  <input type="radio" name="attr_presence_code" value="B"/>
+                  <input type="radio" name="attr_presence_code" value="C"/>
+                  <input type="radio" name="attr_presence_code" value="D"/>
+                  <input type="radio" name="attr_presence_code" value="X"/>
                 </div>
               </div>
             </div>
@@ -599,93 +617,185 @@
     <div class="sheet-group">
       <h2>arms &amp; armors</h2>
       <div class="sheet-row sheet-attribute-combat">
-        <label for="attr_melee-weapon">melee weapon</label>
-        <input name="attr_melee-weapon" type="text"/>
-        <input name="attr_melee-weapon-dmg" type="number" placeholder="dmg"/>
+        <label for="attr_melee_weapon">melee weapon</label>
+        <input name="attr_melee_weapon" type="text"/>
+        <input name="attr_melee_weapon_dmg" type="number" placeholder="dmg"/>
       </div>
       <div class="sheet-row sheet-attribute-combat">
-        <label for="attr_missile-weapon">missile weapon</label>
-        <input name="attr_missile-weapon" type="text"/>
-        <input name="attr_missile-weapon-dmg" type="number" placeholder="dmg"/>
+        <label for="attr_missile_weapon">missile weapon</label>
+        <input name="attr_missile_weapon" type="text"/>
+        <input name="attr_missile_weapon_dmg" type="number" placeholder="dmg"/>
       </div>
       <div class="sheet-row sheet-attribute-combat">
         <label for="attr_armor">armor</label>
         <input name="attr_armor" type="text"/>
-        <input name="attr_armor-def" type="number" placeholder="def"/>
+        <input name="attr_armor_def" type="number" placeholder="def"/>
       </div>
       <div class="sheet-row sheet-attribute-combat">
         <label for="attr_shield">shield</label>
         <input name="attr_shield" type="text"/>
-        <input name="attr_shield-def" type="number" placeholder="def"/>
+        <input name="attr_shield_def" type="number" placeholder="def"/>
       </div>
-    </div>
-    <div class="sheet-group spell-casting-poll">
-      <h2>spell casting pool</h2>
-      <div class="sheet-grid-container">
-        <div class="sheet-grid-col">
-          <div class="sheet-row sheet-attribute-simple">
-            <label for="sorcery">sorcery</label>
-            <input name="attr_sorcery" type="text"/>
-          </div>
-        </div>
-        <div class="sheet-grid-col">
-          <div class="sheet-row sheet-attribute-simple">
-            <label for="mysticism">mysticism</label>
-            <input name="attr_mysticism" type="text"/>
-          </div>
-        </div>
-      </div>
-      <button class="sheet-design-spell" type="action" name="act_design">Design Spell</button>
     </div>
     <div class="sheet-group">
       <h2>additional information</h2>
-      <textarea class="sheet-additional-information" name="attr_additional-information" rows="5"></textarea>
+      <textarea class="sheet-additional-information" name="attr_additional_information" rows="5"></textarea>
     </div>
   </div>
 </div>
-<div class="sheets-spells">
-  <h2>Spells</h2>
-  <input type="hidden" name="attr_spell_amount" value="0"/>
-  <fieldset class="repeating_spells">
-    <input type="text" name="attr_spell_name" value=""/>
-  </fieldset>
+<div class="sheet-group spell-casting-poll">
+  <h2>spell casting pool</h2>
+  <div class="sheet-grid-container">
+    <div class="sheet-grid-col">
+      <div class="sheet-row sheet-attribute-simple">
+        <label for="sorcery">sorcery<span class="sheet-max" name="attr_sorcery_max"></span></label>
+        <input name="attr_sorcery" type="text"/>
+        <input name="attr_sorcery_max" type="hidden" value="0"/>
+      </div>
+    </div>
+    <div class="sheet-grid-col">
+      <div class="sheet-row sheet-attribute-simple">
+        <label for="mysticism">mysticism<span class="sheet-max" name="attr_mysticism_max"></span></label>
+        <input name="attr_mysticism" type="text"/>
+        <input name="attr_mysticism_max" type="hidden" value="0"/>
+      </div>
+    </div>
+  </div>
+  <div class="sheet-spells">
+    <fieldset class="repeating_spells">
+      <h3>
+        <input type="text" name="attr_spell_name"/>
+      </h3>
+      <div><strong>Invocation time: </strong><span name="attr_spell_invocation_time"></span></div>
+      <div><strong>Range: </strong><span name="attr_spell_range"></span></div>
+      <div><strong>Duration: </strong><span name="attr_spell_duration"></span></div>
+      <div><strong>Area of effect: </strong><span name="attr_spell_area_of_effect"></span></div>
+      <div><strong>Effect: </strong><span name="attr_spell_effect"></span></div>
+      <div><strong>Cost: </strong><span name="attr_spell_cost"></span></div>
+      <div><strong>Description:</strong>
+        <textarea name="attr_spell_description"></textarea><span name="attr_spell_description">        </span>
+      </div>
+    </fieldset>
+  </div>
+  <button class="sheet-design-spell" type="action" name="act_design">Design Spell</button>
 </div>
-<script type="text/worker">on('clicked:close', ()=> {
-    setAttrs({'modal': 0, 'spell-step':1, 'spell-area-of-effect':'a', 'spell-effect': 'a' }, function() {
-        console.log('Closed modal');
+<script type="text/worker">const spellAttributes = {
+    meta: ['spell_name', 'spell_cost', 'spell_description'],
+    global: ['spell_invocation_time', 'spell_range', 'spell_duration'],
+    local: ['spell_area_of_effect', 'spell_effect'],
+    lookup: {
+        'spell_area_of_effect': ['spell_group_areas_of_effect', 'spell_place_areas_of_effect', 'spell_temporal_areas_of_effect'],
+        'spell_effect': ['spell_numeric_adjustments', 'spell_healing_spells', 'spell_other_spell_effects']
+    },
+    all: function() {
+        return this.meta.concat(this.global, this.local, this.lookup['spell_area_of_effect'], this.lookup['spell_effect']);
+    }
+}
+
+const saveSpell = function() {
+    const rowUID = generateRowID();
+    let newSpell = {};
+    getAttrs(spellAttributes.all(), attributes => {
+        newSpell[`repeating_spells_${rowUID}_spell_name`] = attributes['spell_name'];
+        newSpell[`repeating_spells_${rowUID}_spell_cost`] = attributes['spell_cost'];
+        newSpell[`repeating_spells_${rowUID}_spell_description`] = attributes['spell_description'];
+        spellAttributes.global.forEach(option => {
+            newSpell[`repeating_spells_${rowUID}_${option}`] = getSpellOptionValue(attributes[option], 0);
+        });
+        spellAttributes.local.forEach(option => {
+            const selectedOption = getSpellOptionValue(attributes[option]);
+            const selectedOptionLabel = getSpellOptionValue(attributes[spellAttributes.lookup[option][selectedOption]], 0);
+            newSpell[`repeating_spells_${rowUID}_${option}`] = selectedOptionLabel;
+        });
+        setAttrs(newSpell, () => {
+            resetSpellDesigner(0);
+        });
     });
+}
+
+const getSpellCost = function(callback) {
+    let spellCost = 0;
+    getAttrs(spellAttributes.global.concat(spellAttributes.local, spellAttributes.lookup['spell_area_of_effect'], spellAttributes.lookup['spell_effect']), attributes => {
+        spellAttributes.global.forEach(option => {
+            spellCost += getSpellOptionValue(attributes[option]);
+        });
+        spellAttributes.local.forEach(option => {
+            const selectedOption = getSpellOptionValue(attributes[option]);
+            const selectedOptionCost = getSpellOptionValue(attributes[spellAttributes.lookup[option][selectedOption]]);
+            spellCost += selectedOptionCost;
+        });
+        callback(spellCost);
+    });
+}
+
+const getSpellOptionValue = function(attribute, returnCost=1) {
+    if(!attribute) return 0;
+    let value = (attribute.indexOf(',') > -1) ? attribute.split(',')[returnCost] : attribute;
+    return (returnCost === 1) ? parseInt(value) : value;
+}
+
+const gotoStep = function(step = 1) {
+    getAttrs(['spell_step'], values => {
+        const currentStep = values['spell_step'];
+        const nextStep = Math.min(Math.max(parseInt(currentStep)+step, 1), 20);
+        getSpellCost(cost => {
+            setAttrs({'spell_cost': cost }, () => {
+                setAttrs({'spell_step': nextStep, 'designing_spell_lock': 1 }, () => {
+                    console.log('Navigated to step ' + nextStep);
+                });
+            });
+        });
+    });
+}
+
+const resetSpellDesigner = function(designingSpell = 1) {
+    let reset = {
+        'designing_spell': designingSpell,
+        'spell_cost': 0,
+        'spell_step': 1
+    }
+    spellAttributes.all().forEach(attribute => {
+        reset[attribute] = "";
+    });
+    setAttrs(reset, function() {
+        console.log('Reseted Spell Designer');
+    });
+}
+
+const changeSpellAttributes = spellAttributes.all().map(function(attribute){ return "change:"+attribute; }).join(' ');
+on(changeSpellAttributes, eventInfo => {
+    getSpellCost(cost => {
+        setAttrs({'spell_cost': cost });
+    });
+})
+
+on('clicked:save', ()=> {
+    saveSpell();
+});
+
+on('clicked:close', ()=> {
+    resetSpellDesigner(0);
 });
 
 on('clicked:design', ()=> {
-    setAttrs({'modal': 1, 'spell-step':1, 'spell-area-of-effect':'a', 'spell-effect': 'a' }, function() {
-        console.log('Opened modal');
+    resetSpellDesigner();
+});
+
+on('clicked:prev_step', ()=> {
+    gotoStep(-1);
+});
+
+on('clicked:next_step', ()=> {
+    gotoStep();
+});
+
+on('change:reason change:spirit', eventInfo => {
+    getAttrs(['reason', 'spirit'], attributes => {
+        const sorceryMax = (attributes['reason']) ? Math.pow(parseInt(attributes['reason']), 2) : 0;
+        const mysticismMax = (attributes['spirit']) ? Math.pow(parseInt(attributes['spirit']), 2) : 0;
+        setAttrs({'sorcery_max':sorceryMax, 'mysticism_max':mysticismMax});
     });
 });
-
-on('clicked:prev-step', ()=> {
-    getAttrs(['spell-step'], values => {
-        const currentStep = values['spell-step'];
-        const prevStep = Math.max(1, currentStep-1);
-        setAttrs({'spell-step': prevStep }, function() {
-            console.log('Navigated to step ' + prevStep);
-        });
-    });
-});
-
-on('clicked:next-step', ()=> {
-    getAttrs(['spell-step'], values => {
-        const currentStep = values['spell-step'];
-        const nextStep = Math.min(7, currentStep+1);
-        setAttrs({'spell-step': nextStep }, function() {
-            console.log('Navigated to step ' + nextStep);
-        });
-    });
-});
-
-on('change:repeating_spells', function(eventInfo) {
-    console.log(eventInfo);
-});
-
 
 //# sourceURL=DL5THAGE.js
 </script>

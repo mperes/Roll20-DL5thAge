@@ -40,7 +40,6 @@
 
 .sheet-character-sheet {
   height: 100%;
-  overflow-y: scroll;
   position: relative;
   font-family: sans-serif;
   font-size: 14px;
@@ -111,7 +110,9 @@ input {
     padding: 0 5px;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%); }
+    transform: translate(-50%, -50%);
+    color: #ab3131;
+    font-weight: 600; }
   .sheet-group label {
     font-weight: normal;
     margin-bottom: 0;
@@ -269,7 +270,14 @@ input {
   border: 0;
   border-radius: 5x;
   margin-bottom: 0;
-  text-align: left; }
+  text-align: left;
+  position: relative;
+  pointer-events: all; }
+  .sheet-modal label:after {
+    content: none; }
+  .sheet-modal .sheet-steps, .sheet-modal .sheet-navigation {
+    position: relative;
+    z-index: 1; }
   .sheet-modal .sheet-steps > div {
     display: none; }
   .sheet-modal h2 {
@@ -287,25 +295,47 @@ input {
     font-size: 18px;
     font-weight: bold;
     border-bottom: 1px solid #CCC;
-    background: transparent; }
+    background: transparent;
+    pointer-events: none; }
   .sheet-modal h3 {
     margin: 10px 0; }
   .sheet-modal p {
     margin-top: 10px; }
-  .sheet-modal input[name="attr_spell-step"][value="1"] ~ .sheet-steps .sheet-step-1 {
+  .sheet-modal input[name="attr_spell_step"][value="1"] ~ .sheet-steps .sheet-step-1:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
     display: block; }
-  .sheet-modal input[name="attr_spell-step"][value="2"] ~ .sheet-steps .sheet-step-2 {
+  .sheet-modal input[name="attr_spell_step"][value="2"] ~ .sheet-steps .sheet-step-2:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
     display: block; }
-  .sheet-modal input[name="attr_spell-step"][value="3"] ~ .sheet-steps .sheet-step-3 {
+  .sheet-modal input[name="attr_spell_step"][value="3"] ~ .sheet-steps .sheet-step-3:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
     display: block; }
-  .sheet-modal input[name="attr_spell-step"][value="4"] ~ .sheet-steps .sheet-step-4 {
+  .sheet-modal input[name="attr_spell_step"][value="4"] ~ .sheet-steps .sheet-step-4:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
     display: block; }
-  .sheet-modal input[name="attr_spell-step"][value="5"] ~ .sheet-steps .sheet-step-5 {
+  .sheet-modal input[name="attr_spell_step"][value="5"] ~ .sheet-steps .sheet-step-5:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
     display: block; }
-  .sheet-modal input[name="attr_spell-step"][value="6"] ~ .sheet-steps .sheet-step-6 {
+  .sheet-modal input[name="attr_spell_step"][value="6"] ~ .sheet-steps .sheet-step-6:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
     display: block; }
-  .sheet-modal input[name="attr_spell-step"][value="7"] ~ .sheet-steps .sheet-step-7 {
+  .sheet-modal input[name="attr_spell_step"][value="7"] ~ .sheet-steps .sheet-step-7:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
     display: block; }
+  .sheet-modal input[name="attr_spell_step"][value="8"] ~ .sheet-steps .sheet-step-8:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
+    display: block; }
+  .sheet-modal input[name="attr_spell_step"][value="9"] ~ .sheet-steps .sheet-step-9:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
+    display: block; }
+  .sheet-modal input[name="attr_spell_step"][value="6"] ~ input[name="attr_spell_area_of_effect"][value="0"] ~ .sheet-steps .sheet-step-6.sheet-0 {
+    display: block; }
+  .sheet-modal input[name="attr_spell_step"][value="6"] ~ input[name="attr_spell_area_of_effect"][value="1"] ~ .sheet-steps .sheet-step-6.sheet-1 {
+    display: block; }
+  .sheet-modal input[name="attr_spell_step"][value="6"] ~ input[name="attr_spell_area_of_effect"][value="2"] ~ .sheet-steps .sheet-step-6.sheet-2 {
+    display: block; }
+  .sheet-modal input[name="attr_spell_step"][value="8"] ~ input[name="attr_spell_effect"][value="0"] ~ .sheet-steps .sheet-step-8.sheet-0 {
+    display: block; }
+  .sheet-modal input[name="attr_spell_step"][value="8"] ~ input[name="attr_spell_effect"][value="1"] ~ .sheet-steps .sheet-step-8.sheet-1 {
+    display: block; }
+  .sheet-modal input[name="attr_spell_step"][value="8"] ~ input[name="attr_spell_effect"][value="2"] ~ .sheet-steps .sheet-step-8.sheet-2 {
+    display: block; }
+  .sheet-modal input[type="radio"] {
+    margin-right: 5px;
+    vertical-align: middle; }
+  .sheet-modal label {
+    margin-top: 10px; }
   .sheet-modal .sheet-attribute-pick {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -317,13 +347,15 @@ input {
       flex-grow: 1;
       -ms-flex-preferred-size: 50%;
       flex-basis: 50%; }
+    .sheet-modal .sheet-attribute-pick label {
+      margin-top: 0px; }
     .sheet-modal .sheet-attribute-pick span {
       text-align: right; }
     .sheet-modal .sheet-attribute-pick label:after {
       content: none; }
     .sheet-modal .sheet-attribute-pick input {
       margin-right: 5px;
-      vertical-align: text-top; }
+      vertical-align: middle; }
     .sheet-modal .sheet-attribute-pick:not(:first-child) {
       margin-top: 10px; }
   .sheet-modal .sheet-navigation {
@@ -342,15 +374,15 @@ input {
         color: white; }
 
 .sheet-blocker {
-  background: white;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -5px;
+  left: -5px;
   z-index: 1;
-  cursor: pointer; }
+  cursor: pointer;
+  pointer-events: all; }
 
 .sheet-blocking-modal {
   display: -webkit-box;
@@ -368,13 +400,14 @@ input {
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: transparent;
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
-  left: -999999px;
-  z-index: 1; }
+  left: 0;
+  z-index: 1;
+  pointer-events: none; }
 
 .sheet-design-spell {
   width: 100%;
@@ -386,13 +419,73 @@ input {
   border: 0;
   color: white; }
 
-.sheet-hack {
-  position: fixed;
-  top: 50%;
-  left: -999999px;
-  z-index: 10; }
+input[name="attr_designing_spell"][value="0"] ~ .sheet-blocking-modal {
+  display: none; }
 
-.sheet-blocking-modal:focus-within {
-  left: 0; }
-  .sheet-blocking-modal:focus-within .sheet-hack {
-    left: 50%; }
+.sheet-step-1 input {
+  border-bottom: 1px solid #DDD !important;
+  padding: 10px 0;
+  margin: 5px 0 20px 0; }
+
+button.sheet-save {
+  display: none; }
+
+input[name="attr_spell_step"][value="9"] ~ .sheet-navigation button.sheet-save {
+  display: block; }
+
+input[name="attr_spell_step"][value="9"] ~ .sheet-navigation button.sheet-next {
+  display: none; }
+
+.sheet-spells {
+  width: calc(100% + 10px);
+  margin-left: -5px; }
+  .sheet-spells .repcontainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse; }
+    .sheet-spells .repcontainer .repitem {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+      padding: 10px;
+      border: 1px solid #DDD;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 10px 5px; }
+      .sheet-spells .repcontainer .repitem input, .sheet-spells .repcontainer .repitem textarea {
+        width: 100%;
+        padding: 0;
+        border: 0; }
+        .sheet-spells .repcontainer .repitem input:focus, .sheet-spells .repcontainer .repitem textarea:focus {
+          padding: 5px;
+          border: 1px solid #ccc; }
+      .sheet-spells .repcontainer .repitem textarea {
+        position: absolute;
+        left: 10px;
+        opacity: 0; }
+      .sheet-spells .repcontainer .repitem textarea + span {
+        display: block; }
+      .sheet-spells .repcontainer .repitem textarea:focus {
+        position: relative;
+        left: auto;
+        opacity: 1; }
+      .sheet-spells .repcontainer .repitem textarea:focus + span {
+        display: none; }
+  .sheet-spells .repcontrol {
+    display: none; }
+
+textarea {
+  margin-bottom: -5px !important; }
+
+span.sheet-max {
+  margin-left: 5px; }
+  span.sheet-max:before {
+    content: '('; }
+  span.sheet-max:after {
+    content: ')'; }

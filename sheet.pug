@@ -4,7 +4,7 @@ mixin abilityGroup(name, ability1, ability2)
   +ability(ability2)
 
 mixin ability(name)
-  - var attr = name.replace(/ /g, '-').toLowerCase()
+  - var attr = name.replace(/ /g, '_').toLowerCase()
   .sheet-grid-container.sheet-small
     .sheet-grid-col
       label.sheet-p-rel(for=`${name}`) #{name}
@@ -17,129 +17,149 @@ mixin ability(name)
             +abilityValue(name, value)
 
 mixin abilityValue(name, value)
-  - var attr = name.replace(/ /g, '-').toLowerCase()
-  input(type='radio' name=`attr_${attr}-code` value=`${value}`)
+  - var attr = name.replace(/ /g, '_').toLowerCase()
+  input(type='radio' name=`attr_${attr}_code` value=`${value}`)
 
 mixin attributeSimple(name)
-  - var attr = name.replace(/ /g, '-').toLowerCase()
+  - var attr = name.replace(/ /g, '_').toLowerCase()
   .sheet-row.sheet-attribute-simple
     label(for=`${name}`) #{name}
     input(name=`attr_${attr}` type='text')
 
 mixin attributeWithCard(name)
-  - var attr = name.replace(/ /g, '-').toLowerCase()
+  - var attr = name.replace(/ /g, '_').toLowerCase()
   .sheet-row.sheet-attribute-with-card
     input.sheet-align-left(name=`attr_${attr}` type='text' placeholder=`${name}`)
-    input(name=`attr_${attr}-card` type='text' placeholder='card')
+    input(name=`attr_${attr}_card` type='text' placeholder='card')
 
 mixin attributeCombat(name, type)
-  - var attr = name.replace(/ /g, '-').toLowerCase()
+  - var attr = name.replace(/ /g, '_').toLowerCase()
   .sheet-row.sheet-attribute-combat
     label(for=`attr_${attr}`) #{name}
     input(name=`attr_${attr}` type='text')
-    input(name=`attr_${attr}-${type}` type='number' placeholder=`${type}`)
+    input(name=`attr_${attr}_${type}` type='number' placeholder=`${type}`)
 
 mixin attributeSpellDesign(name, options, desc='')
-  - var attr = name.replace(/ /g, '-').toLowerCase()
+  - var attr = name.replace(/ /g, '_').toLowerCase()
   h3 #{name}
   .sheet-options
     each value, index in options
       .sheet-row.sheet-attribute-pick
         label
-          input(name=`attr_spell-${attr}` type='radio' value=`${index}+1`)
+          - var firstItem = (index < 1)
+          if firstItem 
+            input(name=`attr_spell_${attr}` type='radio' value=`${value},${index+1}` checked)
+          else
+            input(name=`attr_spell_${attr}` type='radio' value=`${value},${index+1}`)
           | #{value}
-        span.cost #{index} point(s)
+        span.cost #{index+1} point(s)
   p #{desc}
 
-//- link(rel='stylesheet' type='text/css' href='sheet.css')
-input(name='attr_modal' type='hidden' value='1')
+input(name='attr_designing_spell' type='hidden' value='0')
 .sheet-blocking-modal
-  input(class='sheet-hack' name='attr_hack' type='text' required="required")
   .sheet-group.sheet-modal
       h2 designing spells
-      input(name='attr_spell-step' type='hidden' value='1')
-      input(name='attr_spell-area-of-effect' type='hidden' value='a')
-      input(name='attr_spell-effect' type='hidden' value='a')
+      input(name='attr_spell_step' type='hidden' value='1')
+      input(name='attr_spell_cost' type='hidden' value='0')
+      input(name='attr_spell_area_of_effect' type='hidden' value='0')
+      input(name='attr_spell_effect' type='hidden' value='0')
       .sheet-steps
         .sheet-step-1
+          h3 spell name
+          input.sheet-align-left(name=`attr_spell_name` type='text' value='My Spell')
+        .sheet-step-2
           +attributeSpellDesign(
             'invocation time',
             ['30 minutes', '20 minutes', '10 minutes', '1 minute', 'instant'],
             'The longer a sorcerer or mystic takes to invoke a spell, the easier it becomes to cast it correctly (therefore, the lower the difficulty rating). Those who try to rush their magic are prone to errors and mishaps.'
           )
-        .sheet-step-2
+        .sheet-step-3
           +attributeSpellDesign(
             'range',
             ['personal range', 'melee range', 'near missile range', 'far missile range', 'artillery range'],
             'Spells required to function at very long ranges carry a much greater chance of failure and demand more effort (spell points). For instance, healing a comrade\'s wounds becomes much easier if you can lay your hands upon him than if you must heal him from some distance.'
           )
-        .sheet-step-3
+        .sheet-step-4
           +attributeSpellDesign(
             'duration',
             ['instant', '1 minute', '15 minutes', '30 minutes', '1 hour'],
             'The effects of some spells are over almost as soon as they have begun, while others linger for minutes or even an hour after casting. Of course, the longer a caster expects a spell to remain in effect, the more difficult it becomes to cast.'
           )
-        .sheet-step-4
+        .sheet-step-5
           h3 area of effect
           .sheet-options
-            input(name=`attr_spell-area-of-effect` type='radio' value='a')
-            label group area of effect
-            input(name=`attr_spell-area-of-effect` type='radio' value='b')
-            label place area of effect
-            input(name=`attr_spell-area-of-effect` type='radio' value='c')
-            label temporal area of effect
+            label
+              input(name='attr_spell_area_of_effect' type='radio' value='0' checked) 
+              | group area of effect
+            
+            label
+              input(name='attr_spell_area_of_effect' type='radio' value='1')
+              | place area of effect
+            label 
+              input(name='attr_spell_area_of_effect' type='radio' value='2')
+              | temporal area of effect
           p The fourth aspect of a spell's design concerns the amount of area its effects cover. Spells designed to affect a single individual prove much easier to cast than those intended to destroy dozens.
-        .sheet-step-5.sheet-a
+        .sheet-step-6.sheet-0
           +attributeSpellDesign(
             'group areas of effect',
             ['individual', 'couple', 'small group (5 people)', 'large group (10 people)', 'crowd (25 people)'],
             'The chart on the next page is appropriate for spells that affect people, from an individual to a group. The targets must remain more or less together, however, not scattered across an open field.'
           )
-        .sheet-step-5.sheet-b
+        .sheet-step-6.sheet-1
           +attributeSpellDesign(
             'place areas of effect',
             ['individual', 'small room', 'large room', 'small house', 'large house'],
             'If the caster can better define a spell\'s area of effect in terms of spatial size, the player should consult the following chart to determine this property\'s difficulty rating.'
           )
-        .sheet-step-5.sheet-c
+        .sheet-step-6.sheet-2
           +attributeSpellDesign(
             'temporal areas of effect',
             ['1 minute', '1 hour', '1 day', '1 week', '1 month'],
             'Divination spells sometimes look into the future or past in their quest for information. In such cases, the number of hours (or weeks) a sorcerer has to reach backward or forward for the view dictates the spell\'s area of effect.'
           )
-        .sheet-step-6
+        .sheet-step-7
           h3 effect
           .options
-            input(name=`attr_spell-effect` type='radio' value='a')
-            label numeric adjustments
-            input(name=`attr_spell-effect` type='radio' value='b')
-            label healing spells
-            input(name=`attr_spell-effect` type='radio' value='c')
-            label other spell effects
+            label
+              input(name='attr_spell_effect' type='radio' value='0' checked)
+              | numeric adjustments
+            label
+              input(name='attr_spell_effect' type='radio' value='1')
+              | healing spells
+            label
+              input(name='attr_spell_effect' type='radio' value='2')
+              | other spell effects
           p The most difficult aspect of a spell to quantify is its effect. Nevertheless, the following tables provide appropriate difficulty ratings for various spell types.
-        .sheet-step-7.sheet-a
+        .sheet-step-8.sheet-0
           +attributeSpellDesign(
             'numeric adjustments',
             ['+/- 1 to 2 points', '+/- 3 to 5 points', '+/- 6 to 9 points', '+/- 10 to 14 points', '+/- 15 to 20 points'],
             'When a caster intends a spell to cause damage or offer defense against an attack, a player can rate the casting difficulty of its effects fairly easily. Whenever'
           )
-        .sheet-step-7.sheet-b
+        .sheet-step-8.sheet-1
           +attributeSpellDesign(
             'healing spells',
-            ['1 minute', '1 hour', '1 day', '1 week', '1 month'],
+            ['1 card/point', '2 cards/point', '3 cards/point', '4 cards/point', '5 cards/point'],
             'One of the most valuable aspects of mystic magic is its curative ability. In game terms, this effect takes the form of returning lost cards to a hero\'s hand (or lost Endurance points to a character).'
           )
-        .sheet-step-7.sheet-c
+        .sheet-step-8.sheet-2
           +attributeSpellDesign(
             'other spell effects',
             ['Irritating', 'Troublesome', 'Hindering', 'Impeding', 'Painful'],
             'If the spell effect does not seem as easily defined as the above examples, the Narrator assigns it a difficulty rating based on his assessment of the spell\'s desired outcome.'
           )
+        .sheet-step-9
+          h3 optional spell description
+          textarea.sheet-align-left(name=`attr_spell_description`)
+      .sheet-spell-cost
+        h3 spell cost: 
+          span(name="attr_spell_cost")
       .sheet-grid-container.sheet-navigation
         .sheet-grid-col
-          button(type="action" name="act_prev-step") Previous
+          button(type="action" name="act_prev_step") Previous
         .sheet-grid-col
-          button(type="action" name="act_next-step") Next
+          button.sheet-next(type="action" name="act_next_step") Next
+          button.sheet-save(type="action" name="act_save") Save          
 
   button.sheet-blocker(type="action" name="act_close")
 
@@ -165,7 +185,7 @@ input(name='attr_modal' type='hidden' value='1')
           +attributeSimple('eyes')
           +attributeSimple('height')
           +attributeSimple('weight')
-      textarea.sheet-distinguishing-features(name='attr_distinguishing-features' placeholder='Distinguishing Features' rows='5')
+      textarea.sheet-distinguishing-features(name='attr_distinguishing_features' placeholder='Distinguishing Features' rows='5')
     .sheet-group.background
       h2 background
       +attributeSimple('homeland')
@@ -180,7 +200,7 @@ input(name='attr_modal' type='hidden' value='1')
           +attributeSimple('quests')
     .sheet-group
       h2 special abilities/limitations
-      textarea.sheet-special-abilities-and-limitations(name='attr_special-abilities-and-limitations' rows='5')
+      textarea.sheet-special-abilities-and-limitations(name='attr_special_abilities_and_limitations' rows='5')
     .sheet-group
       h2 treasures
       textarea.sheet-treasures(name='attr_treasures' rows='10')
@@ -205,25 +225,62 @@ input(name='attr_modal' type='hidden' value='1')
       +attributeCombat('armor', 'def')
       +attributeCombat('shield', 'def')
     
-    .sheet-group.spell-casting-poll
-      h2 spell casting pool
-      .sheet-grid-container
-        .sheet-grid-col
-          +attributeSimple('sorcery')
-        .sheet-grid-col
-          +attributeSimple('mysticism')
-      button.sheet-design-spell(type="action" name="act_design") Design Spell
+    //-
+      .sheet-group.spell-casting-poll
+        h2 spell casting pool
+        .sheet-grid-container
+          .sheet-grid-col
+            +attributeSimple('sorcery')
+          .sheet-grid-col
+            +attributeSimple('mysticism')
+        button.sheet-design-spell(type="action" name="act_design") Design Spell
     
     .sheet-group
       h2 additional information
-      textarea.sheet-additional-information(name='attr_additional-information' rows='5')
-  
-.sheets-spells
-  h2 Spells
-  input(type="hidden" name="attr_spell_amount" value="0")
-  fieldset.repeating_spells
-    input(type="text" name="attr_spell_name" value="")
+      textarea.sheet-additional-information(name='attr_additional_information' rows='5')
+
+.sheet-group.spell-casting-poll
+  h2 spell casting pool
+  .sheet-grid-container
+    .sheet-grid-col
+      .sheet-row.sheet-attribute-simple
+        label(for='sorcery') sorcery
+          span.sheet-max(name='attr_sorcery_max')
+        input(name='attr_sorcery' type='text')
+        input(name='attr_sorcery_max' type='hidden' value='0')
+    .sheet-grid-col
+      .sheet-row.sheet-attribute-simple
+        label(for='mysticism') mysticism
+          span.sheet-max(name='attr_mysticism_max')
+        input(name='attr_mysticism' type='text')
+        input(name='attr_mysticism_max' type='hidden' value='0')
+  .sheet-spells
+    fieldset.repeating_spells
+      h3
+        input(type='text' name='attr_spell_name')
+      div
+        strong Invocation time: 
+        span(name="attr_spell_invocation_time")
+      div
+        strong Range: 
+        span(name="attr_spell_range")
+      div
+        strong Duration: 
+        span(name="attr_spell_duration")
+      div
+        strong Area of effect: 
+        span(name="attr_spell_area_of_effect")
+      div
+        strong Effect: 
+        span(name="attr_spell_effect")
+      div
+        strong Cost: 
+        span(name="attr_spell_cost")
+      div
+        strong Description:
+        textarea(name="attr_spell_description")
+        span(name="attr_spell_description")         
+  button.sheet-design-spell(type="action" name="act_design") Design Spell
 
 script(type="text/worker")
   include sheet.js
-
