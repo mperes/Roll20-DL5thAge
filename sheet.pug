@@ -158,8 +158,8 @@ input(name='attr_designing_spell' type='hidden' value='0')
         .sheet-grid-col
           button(type="action" name="act_prev_step") Previous
         .sheet-grid-col
-          button.sheet-next(type="action" name="act_next_step") Next
-          button.sheet-save(type="action" name="act_save") Save          
+          button.sheet-next.sheet-primary(type="action" name="act_next_step") Next
+          button.sheet-save.sheet-primary(type="action" name="act_save") Save          
 
   button.sheet-blocker(type="action" name="act_close")
 
@@ -225,16 +225,6 @@ input(name='attr_designing_spell' type='hidden' value='0')
       +attributeCombat('armor', 'def')
       +attributeCombat('shield', 'def')
     
-    //-
-      .sheet-group.spell-casting-poll
-        h2 spell casting pool
-        .sheet-grid-container
-          .sheet-grid-col
-            +attributeSimple('sorcery')
-          .sheet-grid-col
-            +attributeSimple('mysticism')
-        button.sheet-design-spell(type="action" name="act_design") Design Spell
-    
     .sheet-group
       h2 additional information
       textarea.sheet-additional-information(name='attr_additional_information' rows='5')
@@ -257,7 +247,7 @@ input(name='attr_designing_spell' type='hidden' value='0')
   .sheet-spells
     fieldset.repeating_spells
       h3
-        input(type='text' name='attr_spell_name')
+        input.sheet-align-left(type='text' name='attr_spell_name')
       div
         strong Invocation time: 
         span(name="attr_spell_invocation_time")
@@ -280,7 +270,7 @@ input(name='attr_designing_spell' type='hidden' value='0')
         strong Description:
         textarea(name="attr_spell_description")
         span(name="attr_spell_description")         
-  button.sheet-design-spell(type="action" name="act_design") Design Spell
+  button.sheet-primary(type="action" name="act_design") Design Spell
 
 script(type="text/worker")
   include sheet.js

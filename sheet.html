@@ -334,8 +334,8 @@
         <button type="action" name="act_prev_step">Previous</button>
       </div>
       <div class="sheet-grid-col">
-        <button class="sheet-next" type="action" name="act_next_step">Next</button>
-        <button class="sheet-save" type="action" name="act_save">Save          </button>
+        <button class="sheet-next sheet-primary" type="action" name="act_next_step">Next</button>
+        <button class="sheet-save sheet-primary" type="action" name="act_save">Save          </button>
       </div>
     </div>
   </div>
@@ -664,7 +664,7 @@
   <div class="sheet-spells">
     <fieldset class="repeating_spells">
       <h3>
-        <input type="text" name="attr_spell_name"/>
+        <input class="sheet-align-left" type="text" name="attr_spell_name"/>
       </h3>
       <div><strong>Invocation time: </strong><span name="attr_spell_invocation_time"></span></div>
       <div><strong>Range: </strong><span name="attr_spell_range"></span></div>
@@ -677,7 +677,7 @@
       </div>
     </fieldset>
   </div>
-  <button class="sheet-design-spell" type="action" name="act_design">Design Spell</button>
+  <button class="sheet-primary" type="action" name="act_design">Design Spell</button>
 </div>
 <script type="text/worker">const spellAttributes = {
     meta: ['spell_name', 'spell_cost', 'spell_description'],

@@ -1,3 +1,5 @@
+$externalImgsPath: "https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/";
+
 * {
   box-sizing: border-box;
 }
@@ -21,7 +23,7 @@
     .sheet-grid-container {
       grid-column-gap: 10px;
       grid-row-gap: 10px;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       &.sheet-small {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       }
@@ -181,31 +183,33 @@ input {
       right: 0;
       pointer-events: none;
     }
+
     &.sheet-agility:after {
-      background-image: url('img/codes/code-agility.png');
+      background-image: url('#{$externalImgsPath}codes/code-agility.png');
     }
     &.sheet-dexterity:after {
-      background-image: url('img/codes/code-dexterity.png');
+      background-image: url('#{$externalImgsPath}codes/code-dexterity.png');
     }
     &.sheet-endurance:after {
-      background-image: url('img/codes/code-endurance.png');
+      background-image: url('#{$externalImgsPath}codes/code-endurance.png');
     }
     &.sheet-strength:after {
-      background-image: url('img/codes/code-strength.png');
+      background-image: url('#{$externalImgsPath}codes/code-strength.png');
     }
     &.sheet-reason:after {
-      background-image: url('img/codes/code-reason.png');
+      background-image: url('#{$externalImgsPath}codes/code-reason.png');
     }
     &.sheet-perception:after {
-      background-image: url('img/codes/code-perception.png');
+      background-image: url('#{$externalImgsPath}codes/code-perception.png');
     }
     &.sheet-spirit:after {
-      background-image: url('img/codes/code-spirit.png');
+      background-image: url('#{$externalImgsPath}codes/code-spirit.png');
     }
     &.sheet-presence:after {
-      background-image: url('img/codes/code-presence.png');
+      background-image: url('#{$externalImgsPath}codes/code-presence.png');
     }
   }
+
   .sheet-ability-codes {
     padding-top: 0px;
   }
@@ -300,9 +304,19 @@ input {
     border-bottom: 1px solid #CCC;
     background: transparent;
     pointer-events: none;
+    color: #333
   }
   h3 {
     margin: 10px 0;
+    color: #ab3131
+  }
+  .sheet-spell-cost h3 {
+    color: #453f3f;
+    text-transform: uppercase;
+    font-weight: normal;
+    span {
+      font-weight: 600;
+    }
   }
   p {
     margin-top: 10px;
@@ -364,18 +378,6 @@ input {
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    button {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      outline: none;
-      &:not(:first-child) {
-        background: #ab3131;
-        border: 0;
-        color: white;
-      }
-    }
   }
 }
 .sheet-blocker {
@@ -405,17 +407,6 @@ input {
   left: 0;
   z-index: 1;
   pointer-events: none;
-}
-
-.sheet-design-spell {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  outline: none;
-  background: #ab3131;
-  border: 0;
-  color: white;
 }
 
 input[name="attr_designing_spell"][value="0"] ~ .sheet-blocking-modal {
@@ -495,11 +486,44 @@ textarea {
 }
 
 span.sheet-max {
-  margin-left: 5px;
+  font-weight: 600;
+  margin-left: 3px;
   &:before {
     content: '(';
   }
   &:after {
     content: ')';
   }
+}
+
+button:not(.sheet-blocker) {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  background: #fff;
+  color: #333;
+  border: 1px solid #acacac;
+  font-weight: 600;
+  &:hover {
+    border: 1px solid #333;
+    background: #333;
+    color: #fff;
+  }
+}
+
+button.sheet-primary {
+  border: 1px solid #ab3131;
+  background: #fff;
+  color: #ab3131;
+  &:hover {
+    border: 1px solid #ab3131;
+    background: #ab3131;
+    color: #fff;
+  }
+}
+
+.sheet-spell-casting-poll {
+  margin: 0 5px;
 }

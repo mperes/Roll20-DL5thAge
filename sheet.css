@@ -34,7 +34,7 @@
   .sheet-grid-container .sheet-grid-col .sheet-grid-container {
     grid-column-gap: 10px;
     grid-row-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
     .sheet-grid-container .sheet-grid-col .sheet-grid-container.sheet-small {
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
 
@@ -194,28 +194,28 @@ input {
   pointer-events: none; }
 
 .sheet-abilities .sheet-ability-score.sheet-agility:after {
-  background-image: url("img/codes/code-agility.png"); }
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-agility.png"); }
 
 .sheet-abilities .sheet-ability-score.sheet-dexterity:after {
-  background-image: url("img/codes/code-dexterity.png"); }
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-dexterity.png"); }
 
 .sheet-abilities .sheet-ability-score.sheet-endurance:after {
-  background-image: url("img/codes/code-endurance.png"); }
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-endurance.png"); }
 
 .sheet-abilities .sheet-ability-score.sheet-strength:after {
-  background-image: url("img/codes/code-strength.png"); }
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-strength.png"); }
 
 .sheet-abilities .sheet-ability-score.sheet-reason:after {
-  background-image: url("img/codes/code-reason.png"); }
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-reason.png"); }
 
 .sheet-abilities .sheet-ability-score.sheet-perception:after {
-  background-image: url("img/codes/code-perception.png"); }
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-perception.png"); }
 
 .sheet-abilities .sheet-ability-score.sheet-spirit:after {
-  background-image: url("img/codes/code-spirit.png"); }
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-spirit.png"); }
 
 .sheet-abilities .sheet-ability-score.sheet-presence:after {
-  background-image: url("img/codes/code-presence.png"); }
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-presence.png"); }
 
 .sheet-abilities .sheet-ability-codes {
   padding-top: 0px; }
@@ -296,9 +296,17 @@ input {
     font-weight: bold;
     border-bottom: 1px solid #CCC;
     background: transparent;
-    pointer-events: none; }
+    pointer-events: none;
+    color: #333; }
   .sheet-modal h3 {
-    margin: 10px 0; }
+    margin: 10px 0;
+    color: #ab3131; }
+  .sheet-modal .sheet-spell-cost h3 {
+    color: #453f3f;
+    text-transform: uppercase;
+    font-weight: normal; }
+    .sheet-modal .sheet-spell-cost h3 span {
+      font-weight: 600; }
   .sheet-modal p {
     margin-top: 10px; }
   .sheet-modal input[name="attr_spell_step"][value="1"] ~ .sheet-steps .sheet-step-1:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
@@ -362,16 +370,6 @@ input {
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-    .sheet-modal .sheet-navigation button {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      outline: none; }
-      .sheet-modal .sheet-navigation button:not(:first-child) {
-        background: #ab3131;
-        border: 0;
-        color: white; }
 
 .sheet-blocker {
   background: rgba(0, 0, 0, 0.5);
@@ -408,16 +406,6 @@ input {
   left: 0;
   z-index: 1;
   pointer-events: none; }
-
-.sheet-design-spell {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  outline: none;
-  background: #ab3131;
-  border: 0;
-  color: white; }
 
 input[name="attr_designing_spell"][value="0"] ~ .sheet-blocking-modal {
   display: none; }
@@ -484,8 +472,36 @@ textarea {
   margin-bottom: -5px !important; }
 
 span.sheet-max {
-  margin-left: 5px; }
+  font-weight: 600;
+  margin-left: 3px; }
   span.sheet-max:before {
     content: '('; }
   span.sheet-max:after {
     content: ')'; }
+
+button:not(.sheet-blocker) {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  background: #fff;
+  color: #333;
+  border: 1px solid #acacac;
+  font-weight: 600; }
+  button:not(.sheet-blocker):hover {
+    border: 1px solid #333;
+    background: #333;
+    color: #fff; }
+
+button.sheet-primary {
+  border: 1px solid #ab3131;
+  background: #fff;
+  color: #ab3131; }
+  button.sheet-primary:hover {
+    border: 1px solid #ab3131;
+    background: #ab3131;
+    color: #fff; }
+
+.sheet-spell-casting-poll {
+  margin: 0 5px; }
