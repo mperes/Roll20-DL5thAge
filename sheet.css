@@ -631,20 +631,20 @@ button.sheet-primary:hover {
   z-index: 0;
 }
 .sheet-card .sheet-suit {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   position: absolute;
   -webkit-mask-size: cover;
   mask-size: cover;
   background: black;
 }
 .sheet-card .sheet-suit.sheet-tl {
-  top: 0;
-  left: 0;
+  top: 5px;
+  left: 5px;
 }
 .sheet-card .sheet-suit.sheet-br {
-  bottom: 0;
-  right: 0;
+  bottom: 5px;
+  right: 5px;
 }
 .sheet-card input[name=attr_color][value="0"] ~ .sheet-color {
   background: red;
