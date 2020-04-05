@@ -185,28 +185,28 @@ input {
     }
 
     &.sheet-agility:after {
-      background-image: url('#{$externalImgsPath}codes/code-agility.png');
+      background-image: url('#{$externalImgsPath}codes/code-agility-new.png');
     }
     &.sheet-dexterity:after {
-      background-image: url('#{$externalImgsPath}codes/code-dexterity.png');
+      background-image: url('#{$externalImgsPath}codes/code-dexterity-new.png');
     }
     &.sheet-endurance:after {
-      background-image: url('#{$externalImgsPath}codes/code-endurance.png');
+      background-image: url('#{$externalImgsPath}codes/code-endurance-new.png');
     }
     &.sheet-strength:after {
-      background-image: url('#{$externalImgsPath}codes/code-strength.png');
+      background-image: url('#{$externalImgsPath}codes/code-strength-new.png');
     }
     &.sheet-reason:after {
-      background-image: url('#{$externalImgsPath}codes/code-reason.png');
+      background-image: url('#{$externalImgsPath}codes/code-reason-new.png');
     }
     &.sheet-perception:after {
-      background-image: url('#{$externalImgsPath}codes/code-perception.png');
+      background-image: url('#{$externalImgsPath}codes/code-perception-new.png');
     }
     &.sheet-spirit:after {
-      background-image: url('#{$externalImgsPath}codes/code-spirit.png');
+      background-image: url('#{$externalImgsPath}codes/code-spirit-new.png');
     }
     &.sheet-presence:after {
-      background-image: url('#{$externalImgsPath}codes/code-presence.png');
+      background-image: url('#{$externalImgsPath}codes/code-presence-new.png');
     }
   }
 
@@ -561,40 +561,43 @@ button.sheet-primary {
   input[name='attr_color'][value='2'] ~ .sheet-color{
     background: white;
   }
+  input[name='attr_color'][value='1'] ~ .sheet-suit {
+    background: white;
+  }
   input[name='attr_suit'][value='0'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-agility.png');
-    mask-image: url('#{$externalImgsPath}codes/code-agility.png');
+    -webkit-mask-image: url('#{$externalImgsPath}codes/code-agility-new.png');
+    mask-image: url('#{$externalImgsPath}codes/code-agility-new.png');
   }
   input[name='attr_suit'][value='1'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-dexterity.png');
-    mask-image: url('#{$externalImgsPath}codes/code-dexterity.png');
+    -webkit-mask-image: url('#{$externalImgsPath}codes/code-dexterity-new.png');
+    mask-image: url('#{$externalImgsPath}codes/code-dexterity-new.png');
   }
   input[name='attr_suit'][value='2'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-endurance.png');
-    mask-image: url('#{$externalImgsPath}codes/code-endurance.png');
+    -webkit-mask-image: url('#{$externalImgsPath}codes/code-endurance-new.png');
+    mask-image: url('#{$externalImgsPath}codes/code-endurance-new.png');
   }
   input[name='attr_suit'][value='3'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-strength.png');
-    mask-image: url('#{$externalImgsPath}codes/code-strength.png');
+    -webkit-mask-image: url('#{$externalImgsPath}codes/code-strength-new.png');
+    mask-image: url('#{$externalImgsPath}codes/code-strength-new.png');
   }
   input[name='attr_suit'][value='4'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-reason.png');
-    mask-image: url('#{$externalImgsPath}codes/code-reason.png');
+    -webkit-mask-image: url('#{$externalImgsPath}codes/code-reason-new.png');
+    mask-image: url('#{$externalImgsPath}codes/code-reason-new.png');
   }
   input[name='attr_suit'][value='5'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-perception.png');
-    mask-image: url('#{$externalImgsPath}codes/code-perception.png');
+    -webkit-mask-image: url('#{$externalImgsPath}codes/code-perception-new.png');
+    mask-image: url('#{$externalImgsPath}codes/code-perception-new.png');
   }
   input[name='attr_suit'][value='6'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-spirit.png');
-    mask-image: url('#{$externalImgsPath}codes/code-spirit.png');
+    -webkit-mask-image: url('#{$externalImgsPath}codes/code-spirit-new.png');
+    mask-image: url('#{$externalImgsPath}codes/code-spirit-new.png');
   }
   input[name='attr_suit'][value='7'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-presence.png');
-    mask-image: url('#{$externalImgsPath}codes/code-presence.png');
+    -webkit-mask-image: url('#{$externalImgsPath}codes/code-presence-new.png');
+    mask-image: url('#{$externalImgsPath}codes/code-presence-new.png');
   }
   input[name='attr_suit'][value='8'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-mishap.png');
-    mask-image: url('#{$externalImgsPath}codes/code-mishap.png');
+    -webkit-mask-image: url('#{$externalImgsPath}codes/code-mishap-new.png');
+    mask-image: url('#{$externalImgsPath}codes/code-mishap-new.png');
   }
 }
