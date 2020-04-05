@@ -681,14 +681,16 @@
 </div>
 <div class="sheet-group">
   <button type="action" name="act_draw">Draw</button>
+  <input type="hidden" name="attr_hand"/>
   <fieldset class="repeating_cards">
     <div class="card">
       <input type="hidden" name="attr_color"/>
       <input type="hidden" name="attr_suit"/>
-      <div class="color"></div>
-      <div class="suit tl"></div>
-      <div class="suit br"></div>
-      <div><span class="nature" name="attr_demeanor"></span><span class="behaviour" name="attr_nature"></span></div><span class="value" name="attr_value"></span><span class="value" name="attr_name"></span>
+      <input type="hidden" name="attr_demeanor"/>
+      <input type="hidden" name="attr_nature"/>
+      <input type="hidden" name="attr_value"/>
+      <input type="hidden" name="attr_name"/><img src="https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/fatedeck/empty.png"/>
+      <div class="texture"></div>
     </div>
   </fieldset>
 </div>
@@ -1409,7 +1411,15 @@ const drawCard = () => {
     Object.keys(randomCard).forEach(property => {
         newCard[`repeating_cards_${rowUID}_${property}`] = randomCard[property];
     });
-    setAttrs(newCard);
+    setAttrs(newCard, () => {
+        updateHandSize();
+    });
+}
+
+const updateHandSize = () => {
+    getSectionIDs("cards", ids => {
+        setAttrs({ hand: ids.length });
+    });
 }
 
 const getSpellCost = function(callback) {

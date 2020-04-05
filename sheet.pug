@@ -273,19 +273,18 @@ input(name='attr_designing_spell' type='hidden' value='0')
       textarea.sheet-additional-information(name='attr_additional_information' rows='5')
   
 .sheet-group
-  button(type="action" name="act_draw") Draw
+  button(type='action' name='act_draw') Draw
+  input(type='hidden', name='attr_hand')
   fieldset.repeating_cards
     .card
       input(type='hidden' name='attr_color')
       input(type='hidden' name='attr_suit')
-      .color
-      .suit.tl
-      .suit.br
-      div
-        span.nature(name='attr_demeanor')
-        span.behaviour(name='attr_nature')
-      span.value(name='attr_value')
-      span.value(name='attr_name')
+      input(type='hidden' name='attr_demeanor')
+      input(type='hidden' name='attr_nature')
+      input(type='hidden' name='attr_value')
+      input(type='hidden' name='attr_name')
+      img(src='https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/fatedeck/empty.png')
+      .texture
 
 script(type="text/worker")
   include fateDeck.js

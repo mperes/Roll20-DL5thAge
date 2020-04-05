@@ -39,7 +39,15 @@ const drawCard = () => {
     Object.keys(randomCard).forEach(property => {
         newCard[`repeating_cards_${rowUID}_${property}`] = randomCard[property];
     });
-    setAttrs(newCard);
+    setAttrs(newCard, () => {
+        updateHandSize();
+    });
+}
+
+const updateHandSize = () => {
+    getSectionIDs("cards", ids => {
+        setAttrs({ hand: ids.length });
+    });
 }
 
 const getSpellCost = function(callback) {

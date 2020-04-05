@@ -524,88 +524,165 @@ button.sheet-primary {
   }
 }
 
+.repeating_cards ~ .repcontainer {
+  position: relative;
+  .repitem {
+    display: inline-block;
+    width: 200px;
+    position: absolute;
+    top:0;
+  }
+}
+
+input[name="attr_hand"][value="1"] ~ .repcontainer {
+  .repitem:nth-child(2) {
+    left: calc(calc(100% - 200px) / 4);
+    
+  }
+  .repitem:nth-child(3) {
+    left: calc(calc(100% - 200px) / 4 * 2);
+    
+  }
+  .repitem:nth-child(4) {
+    left: calc(calc(100% - 200px) / 4 * 3);
+    
+  }
+  .repitem:nth-child(5) {
+    left: calc(calc(100% - 200px) / 4 * 4);
+    
+  }
+}
+input[name="attr_hand"][value="2"] ~ .repcontainer {
+  .repitem:nth-child(2) {
+    left: calc(calc(100% - 200px) / 1);
+    
+  }
+}
+input[name="attr_hand"][value="3"] ~ .repcontainer {
+  .repitem:nth-child(2) {
+    left: calc(calc(100% - 200px) / 2);
+    
+  }
+  .repitem:nth-child(3) {
+    left: calc(calc(100% - 200px) / 2 * 2);
+    
+  }
+}
+input[name="attr_hand"][value="4"] ~ .repcontainer {
+  .repitem:nth-child(2) {
+    left: calc(calc(100% - 200px) / 3);
+    
+  }
+  .repitem:nth-child(3) {
+    left: calc(calc(100% - 200px) / 3 * 2);
+    
+  }
+  .repitem:nth-child(4) {
+    left: calc(calc(100% - 200px) / 3 * 3);
+    
+  }
+}
+input[name="attr_hand"][value="5"] ~ .repcontainer {
+  .repitem:nth-child(2) {
+    left: calc(calc(100% - 200px) / 4);
+    
+  }
+  .repitem:nth-child(3) {
+    left: calc(calc(100% - 200px) / 4 * 2);
+    
+  }
+  .repitem:nth-child(4) {
+    left: calc(calc(100% - 200px) / 4 * 3);
+    
+  }
+  .repitem:nth-child(5) {
+    left: calc(calc(100% - 200px) / 4 * 4);
+    
+  }
+}
+
 .sheet-card {
-  width: 200px;
-  height: 300px;
-  border-radius: 5px;
+  width: 100%;
+  border-radius: 8px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 0 10px rgba(0,0,0,0.35);
-  &> * {
-    position: relative;
-    z-index: 1;
-  }
-  .sheet-color {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: block;
-    top: 0;
-    left: 0;
+  box-shadow: 0 0 5px rgba(0,0,0,0.75);
+  display: inline-block;
+  img {
     z-index: 0;
+    width: 100%;
+    height: auto;
+    
   }
-  .sheet-suit {
-    width: 48px;
-    height: 48px;
+  .sheet-texture {
     position: absolute;
-    -webkit-mask-size: cover;
-    mask-size  : cover;
-    background: black;
+    background-image: url('#{$externalImgsPath}fatedeck/fate_deck.jpg');
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1000%;
+    height: 900%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    cursor: default;
   }
-  .sheet-suit.sheet-tl {
-    top: 5px;
-    left: 5px;
+  input[name='attr_suit'][value='0'] ~ .sheet-texture {
+    //
   }
-  .sheet-suit.sheet-br {
-    bottom: 5px;
-    right: 5px;
+  input[name='attr_suit'][value='1'] ~ .sheet-texture {
+    top: calc(-100% * 1);
   }
-  input[name='attr_color'][value='0'] ~ .sheet-color {
-    background: red;
+  input[name='attr_suit'][value='2'] ~ .sheet-texture {
+    top: calc(-100% * 2);
   }
-  input[name='attr_color'][value='1'] ~ .sheet-color {
-    background: black;
+  input[name='attr_suit'][value='3'] ~ .sheet-texture {
+    top: calc(-100% * 3);
   }
-  input[name='attr_color'][value='2'] ~ .sheet-color{
-    background: white;
+  input[name='attr_suit'][value='4'] ~ .sheet-texture {
+    top: calc(-100% * 4);
   }
-  input[name='attr_color'][value='1'] ~ .sheet-suit {
-    background: white;
+  input[name='attr_suit'][value='5'] ~ .sheet-texture {
+    top: calc(-100% * 5);
   }
-  input[name='attr_suit'][value='0'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-agility-new.png');
-    mask-image: url('#{$externalImgsPath}codes/code-agility-new.png');
+  input[name='attr_suit'][value='6'] ~ .sheet-texture {
+    top: calc(-100% * 6);
   }
-  input[name='attr_suit'][value='1'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-dexterity-new.png');
-    mask-image: url('#{$externalImgsPath}codes/code-dexterity-new.png');
+  input[name='attr_suit'][value='7'] ~ .sheet-texture {
+    top: calc(-100% * 7);
   }
-  input[name='attr_suit'][value='2'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-endurance-new.png');
-    mask-image: url('#{$externalImgsPath}codes/code-endurance-new.png');
+  input[name='attr_suit'][value='7'] ~ .sheet-texture {
+    top: calc(-100% * 8);
   }
-  input[name='attr_suit'][value='3'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-strength-new-2.png');
-    mask-image: url('#{$externalImgsPath}codes/code-strength-new-2.png');
+
+  input[name='attr_value'][value='0'] ~ .sheet-texture {
+    //
   }
-  input[name='attr_suit'][value='4'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-reason-new.png');
-    mask-image: url('#{$externalImgsPath}codes/code-reason-new.png');
+  input[name='attr_value'][value='1'] ~ .sheet-texture {
+    left: -100%;
   }
-  input[name='attr_suit'][value='5'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-perception-new.png');
-    mask-image: url('#{$externalImgsPath}codes/code-perception-new.png');
+  input[name='attr_value'][value='2'] ~ .sheet-texture {
+    left: calc(-100% * 1);
   }
-  input[name='attr_suit'][value='6'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-spirit-new.png');
-    mask-image: url('#{$externalImgsPath}codes/code-spirit-new.png');
+  input[name='attr_value'][value='3'] ~ .sheet-texture {
+    left: calc(-100% * 2);
   }
-  input[name='attr_suit'][value='7'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-presence-new.png');
-    mask-image: url('#{$externalImgsPath}codes/code-presence-new.png');
+  input[name='attr_value'][value='4'] ~ .sheet-texture {
+    left: calc(-100% * 3);
   }
-  input[name='attr_suit'][value='8'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-mishap-new.png');
-    mask-image: url('#{$externalImgsPath}codes/code-mishap-new.png');
+  input[name='attr_value'][value='5'] ~ .sheet-texture {
+    left: calc(-100% * 4);
+  }
+  input[name='attr_value'][value='6'] ~ .sheet-texture {
+    left: calc(-100% * 5);
+  }
+  input[name='attr_value'][value='7'] ~ .sheet-texture {
+    left: calc(-100% * 6);
+  }
+  input[name='attr_value'][value='8'] ~ .sheet-texture {
+    left: calc(-100% * 7);
+  }
+  input[name='attr_value'][value='9'] ~ .sheet-texture {
+    left: calc(-100% * 8);
   }
 }
