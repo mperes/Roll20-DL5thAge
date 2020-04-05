@@ -194,7 +194,7 @@ input {
       background-image: url('#{$externalImgsPath}codes/code-endurance-new.png');
     }
     &.sheet-strength:after {
-      background-image: url('#{$externalImgsPath}codes/code-strength-new.png');
+      background-image: url('#{$externalImgsPath}codes/code-strength-new-2.png');
     }
     &.sheet-reason:after {
       background-image: url('#{$externalImgsPath}codes/code-reason-new.png');
@@ -530,7 +530,7 @@ button.sheet-primary {
   border-radius: 5px;
   overflow: hidden;
   position: relative;
-  border: 2px solid black;
+  box-shadow: 0 0 10px rgba(0,0,0,0.35);
   &> * {
     position: relative;
     z-index: 1;
@@ -551,6 +551,14 @@ button.sheet-primary {
     -webkit-mask-size: cover;
     mask-size  : cover;
     background: black;
+  }
+  .sheet-suit.sheet-tl {
+    top: 0;
+    left: 0;
+  }
+  .sheet-suit.sheet-br {
+    bottom: 0;
+    right: 0;
   }
   input[name='attr_color'][value='0'] ~ .sheet-color {
     background: red;
@@ -577,8 +585,8 @@ button.sheet-primary {
     mask-image: url('#{$externalImgsPath}codes/code-endurance-new.png');
   }
   input[name='attr_suit'][value='3'] ~ .sheet-suit{
-    -webkit-mask-image: url('#{$externalImgsPath}codes/code-strength-new.png');
-    mask-image: url('#{$externalImgsPath}codes/code-strength-new.png');
+    -webkit-mask-image: url('#{$externalImgsPath}codes/code-strength-new-2.png');
+    mask-image: url('#{$externalImgsPath}codes/code-strength-new-2.png');
   }
   input[name='attr_suit'][value='4'] ~ .sheet-suit{
     -webkit-mask-image: url('#{$externalImgsPath}codes/code-reason-new.png');

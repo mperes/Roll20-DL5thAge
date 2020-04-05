@@ -243,7 +243,7 @@ input {
   background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-endurance-new.png");
 }
 .sheet-abilities .sheet-ability-score.sheet-strength:after {
-  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-strength-new.png");
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-strength-new-2.png");
 }
 .sheet-abilities .sheet-ability-score.sheet-reason:after {
   background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-reason-new.png");
@@ -614,7 +614,8 @@ button.sheet-primary:hover {
   border-radius: 5px;
   overflow: hidden;
   position: relative;
-  border: 2px solid black;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
 }
 .sheet-card > * {
   position: relative;
@@ -636,6 +637,14 @@ button.sheet-primary:hover {
   -webkit-mask-size: cover;
   mask-size: cover;
   background: black;
+}
+.sheet-card .sheet-suit.sheet-tl {
+  top: 0;
+  left: 0;
+}
+.sheet-card .sheet-suit.sheet-br {
+  bottom: 0;
+  right: 0;
 }
 .sheet-card input[name=attr_color][value="0"] ~ .sheet-color {
   background: red;
@@ -662,8 +671,8 @@ button.sheet-primary:hover {
   mask-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-endurance-new.png");
 }
 .sheet-card input[name=attr_suit][value="3"] ~ .sheet-suit {
-  -webkit-mask-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-strength-new.png");
-  mask-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-strength-new.png");
+  -webkit-mask-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-strength-new-2.png");
+  mask-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-strength-new-2.png");
 }
 .sheet-card input[name=attr_suit][value="4"] ~ .sheet-suit {
   -webkit-mask-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-reason-new.png");
