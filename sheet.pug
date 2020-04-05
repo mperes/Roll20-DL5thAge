@@ -225,7 +225,7 @@ input(name='attr_designing_spell' type='hidden' value='0')
       +attributeCombat('armor', 'def')
       +attributeCombat('shield', 'def')
 
-    .sheet-group.spell-casting-poll
+    .sheet-group
       h2 spell casting pool
       .sheet-grid-container
         .sheet-grid-col
@@ -271,6 +271,21 @@ input(name='attr_designing_spell' type='hidden' value='0')
     .sheet-group
       h2 additional information
       textarea.sheet-additional-information(name='attr_additional_information' rows='5')
+  
+.sheet-group
+  button(type="action" name="act_draw") Draw
+  fieldset.repeating_cards
+    .card
+      input(type='hidden' name='attr_color')
+      input(type='hidden' name='attr_suit')
+      .color
+      .suit.tl
+      .suit.br
+      div
+        span.nature(name='attr_demeanor')
+        span.behaviour(name='attr_nature')
+      span.value(name='attr_value')
+      span.value(name='attr_name')
 
 script(type="text/worker")
   include fateDeck.js

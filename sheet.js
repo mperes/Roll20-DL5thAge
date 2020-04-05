@@ -32,6 +32,16 @@ const saveSpell = function() {
     });
 }
 
+const drawCard = () => {
+    const randomCard = FATE_DECK[Math.round(Math.random() * (FATE_DECK.length-1))];
+    const rowUID = generateRowID();
+    let newCard = {};
+    Object.keys(randomCard).forEach(property => {
+        newCard[`repeating_cards_${rowUID}_${property}`] = randomCard[property];
+    });
+    setAttrs(newCard);
+}
+
 const getSpellCost = function(callback) {
     let spellCost = 0;
     getAttrs(spellAttributes.global.concat(spellAttributes.local, spellAttributes.lookup['spell_area_of_effect'], spellAttributes.lookup['spell_effect']), attributes => {
@@ -86,7 +96,11 @@ on(changeSpellAttributes, eventInfo => {
     getSpellCost(cost => {
         setAttrs({'spell_cost': cost });
     });
-})
+});
+
+on('clicked:draw', () => {
+    drawCard();
+});
 
 on('clicked:save', ()=> {
     saveSpell();
