@@ -224,53 +224,54 @@ input(name='attr_designing_spell' type='hidden' value='0')
       +attributeCombat('missile weapon', 'dmg')
       +attributeCombat('armor', 'def')
       +attributeCombat('shield', 'def')
+
+    .sheet-group.spell-casting-poll
+      h2 spell casting pool
+      .sheet-grid-container
+        .sheet-grid-col
+          .sheet-row.sheet-attribute-simple
+            label(for='sorcery') sorcery
+              span.sheet-max(name='attr_sorcery_max')
+            input(name='attr_sorcery' type='text')
+            input(name='attr_sorcery_max' type='hidden' value='0')
+        .sheet-grid-col
+          .sheet-row.sheet-attribute-simple
+            label(for='mysticism') mysticism
+              span.sheet-max(name='attr_mysticism_max')
+            input(name='attr_mysticism' type='text')
+            input(name='attr_mysticism_max' type='hidden' value='0')
+      .sheet-spells
+        fieldset.repeating_spells
+          h3
+            input.sheet-align-left(type='text' name='attr_spell_name')
+          div
+            strong Invocation time: 
+            span(name="attr_spell_invocation_time")
+          div
+            strong Range: 
+            span(name="attr_spell_range")
+          div
+            strong Duration: 
+            span(name="attr_spell_duration")
+          div
+            strong Area of effect: 
+            span(name="attr_spell_area_of_effect")
+          div
+            strong Effect: 
+            span(name="attr_spell_effect")
+          div
+            strong Cost: 
+            span(name="attr_spell_cost")
+          div
+            strong Description:
+            textarea(name="attr_spell_description")
+            span(name="attr_spell_description")         
+      button.sheet-primary(type="action" name="act_design") Design Spell
     
     .sheet-group
       h2 additional information
       textarea.sheet-additional-information(name='attr_additional_information' rows='5')
 
-.sheet-group.spell-casting-poll
-  h2 spell casting pool
-  .sheet-grid-container
-    .sheet-grid-col
-      .sheet-row.sheet-attribute-simple
-        label(for='sorcery') sorcery
-          span.sheet-max(name='attr_sorcery_max')
-        input(name='attr_sorcery' type='text')
-        input(name='attr_sorcery_max' type='hidden' value='0')
-    .sheet-grid-col
-      .sheet-row.sheet-attribute-simple
-        label(for='mysticism') mysticism
-          span.sheet-max(name='attr_mysticism_max')
-        input(name='attr_mysticism' type='text')
-        input(name='attr_mysticism_max' type='hidden' value='0')
-  .sheet-spells
-    fieldset.repeating_spells
-      h3
-        input.sheet-align-left(type='text' name='attr_spell_name')
-      div
-        strong Invocation time: 
-        span(name="attr_spell_invocation_time")
-      div
-        strong Range: 
-        span(name="attr_spell_range")
-      div
-        strong Duration: 
-        span(name="attr_spell_duration")
-      div
-        strong Area of effect: 
-        span(name="attr_spell_area_of_effect")
-      div
-        strong Effect: 
-        span(name="attr_spell_effect")
-      div
-        strong Cost: 
-        span(name="attr_spell_cost")
-      div
-        strong Description:
-        textarea(name="attr_spell_description")
-        span(name="attr_spell_description")         
-  button.sheet-primary(type="action" name="act_design") Design Spell
-
 script(type="text/worker")
+  include fateDeck.js
   include sheet.js
