@@ -272,9 +272,11 @@ input(name='attr_designing_spell' type='hidden' value='0')
       h2 additional information
       textarea.sheet-additional-information(name='attr_additional_information' rows='5')
   
-.sheet-group
-  button.draw(type='action' name='act_draw')
-  input(type='hidden', name='attr_hand')
+div(style="padding: 0 5px;")
+  //-button.draw(type='action' name='act_draw')
+  input(type='hidden', name='attr_player_hand' value ='')
+  input(type='hidden', name='attr_player_hand_size' value='')
+  input(type='hidden', name='attr_graveyard' value ='')
   fieldset.repeating_cards
     .card
       input(type='hidden' name='attr_color')
@@ -286,8 +288,9 @@ input(name='attr_designing_spell' type='hidden' value='0')
       button.discard(type='action' name='act_discard') Discard
       .mask
         .texture
+      button.draw(type='action' name='act_draw')
 
 script(type="text/worker")
   include SheetUtils.js
-  include fateDeck.js
+  include FateDeck.js
   include sheet.js

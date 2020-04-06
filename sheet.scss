@@ -527,34 +527,35 @@ button.sheet-primary {
 .repeating_cards ~ .repcontainer {
   position: relative;
   height: 286px;
+  white-space: nowrap;
   .repitem {
     display: inline-block;
     width: 200px;
     height: 286px;
   }
 }
-input[name="attr_hand"] ~ .repcontainer {
+input[name="attr_player_hand_size"] ~ .repcontainer {
   .repitem {
     max-width: 200px;
     width: 200px;
     transition: all 0.5s ease-out;
   }
 }
-@for $i from 2 through 9 {
-  input[name="attr_hand"][value="#{$i}"] ~ .repcontainer {
-    $prev: $i;
+@for $i from 2 through 10 {
+  input[name="attr_player_hand_size"][value="#{$i}"] ~ .repcontainer {
+    $prev: $i - 1;
     .repitem:not(:first-child) {
       width: calc(calc(100% - 200px) / #{$prev});
       max-width: 210px;
     }
   }
 }
-input[name="attr_hand"] ~ .repcontainer .repitem:first-child {
+input[name="attr_player_hand_size"] ~ .repcontainer .repitem:first-child {
   .sheet-card {
     margin-left: 0;
   }
 }
-input[name="attr_hand"] ~ .repcontainer .repitem:hover {
+input[name="attr_player_hand_size"] ~ .repcontainer .repitem:hover {
   transform: translateY(-25%);
 }
 .sheet-card {
@@ -594,12 +595,12 @@ input[name="attr_hand"] ~ .repcontainer .repitem:hover {
     pointer-events: none;
     cursor: default;
   }
-  @for $i from 1 through 7 {
+  @for $i from 1 through 8 {
     input[name='attr_suit'][value='#{$i}'] ~ .sheet-mask .sheet-texture {
       top: calc(-100% * #{$i});
     }
   }
-  @for $i from 1 through 9 {
+  @for $i from 1 through 10 {
     input[name='attr_value'][value='#{$i}'] ~ .sheet-mask .sheet-texture {
       $prev: $i - 1;
       left: calc(-100% * #{$prev});
@@ -607,27 +608,23 @@ input[name="attr_hand"] ~ .repcontainer .repitem:hover {
   }
 }
 
-button.sheet-draw {
-  width: 200px;
-  height: 286px;
-  position: absolute;
-  top: 15px;
-  right: 10px;
-  background: #CCC;
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  border: 0;
-  z-index: 10;
-  background-image: url('#{$externalImgsPath}fatedeck/fate_deck.jpg');
-  background-size: 1000%;
-  background-repeat: no-repeat;
-  background-position: right top;
+.repitem .sheet-card .sheet-draw {
+  display: none;
 }
-button.sheet-draw:hover {
-  background-image: url('#{$externalImgsPath}fatedeck/fate_deck.jpg');
-  background-size: 1000%;
-  background-repeat: no-repeat;
-  background-position: right top;
-  border: 0;
+.repitem:first-child .sheet-card {
+  .sheet-draw {
+    display: block;
+  }
+  .sheet-discard {
+    display: none;
+  }
+}
+
+button.sheet-draw {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  margin-top: -286px;
 }
 .repcontrol {
   display: none;

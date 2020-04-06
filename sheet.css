@@ -1,42 +1,47 @@
 * {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
+          box-sizing: border-box;
+}
 
 .sheet-flex-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -ms-flex-line-pack: start;
-  align-content: flex-start;
+      align-content: flex-start;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  max-width: 100%; }
+      -ms-flex-direction: row;
+          flex-direction: row;
+  max-width: 100%;
+}
 
 .sheet-grid-container {
   display: -ms-grid;
   display: grid;
   -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: start;
+      -ms-flex-align: start;
+          align-items: start;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-  .sheet-grid-container .sheet-grid-col .sheet-grid-container {
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .sheet-grid-container .sheet-grid-col .sheet-grid-container.sheet-small {
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.sheet-grid-container .sheet-grid-col .sheet-grid-container {
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.sheet-grid-container .sheet-grid-col .sheet-grid-container.sheet-small {
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
 
 .sheet-character-sheet {
   height: 100%;
@@ -44,128 +49,163 @@
   font-family: sans-serif;
   font-size: 14px;
   line-height: 20px;
-  padding: 5px; }
+  padding: 5px;
+}
 
 input, textarea, label, h2, h3 {
   font-size: 14px;
   line-height: 20px;
-  text-transform: capitalize; }
+  text-transform: capitalize;
+}
 
 input, textarea {
-  text-transform: none; }
+  text-transform: none;
+}
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  text-transform: capitalize; }
+  text-transform: capitalize;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  text-transform: capitalize;
+}
 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  text-transform: capitalize; }
+  text-transform: capitalize;
+}
 
 input::-ms-input-placeholder, textarea::-ms-input-placeholder {
-  text-transform: capitalize; }
+  text-transform: capitalize;
+}
 
 input::placeholder, textarea::placeholder {
-  text-transform: capitalize; }
+  text-transform: capitalize;
+}
 
 input {
   padding: 1px 0;
   font-weight: bold;
-  color: black; }
+  color: black;
+}
 
 .sheet-align-left {
-  text-align: left !important; }
+  text-align: left !important;
+}
 
 .sheet-group {
   border-radius: 5px;
   border: 1px solid #c0c0c0;
   margin: 0 0 20px 0;
   padding: 15px 10px;
-  position: relative; }
-  .sheet-group .sheet-row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex; }
-  .sheet-group .sheet-attribute-simple input, .sheet-group .sheet-attribute-simple label,
-  .sheet-group .sheet-attribute-with-card input,
-  .sheet-group .sheet-attribute-with-card label {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    -ms-flex-preferred-size: 50%;
-    flex-basis: 50%; }
-  .sheet-group .sheet-attribute-combat input, .sheet-group .sheet-attribute-combat label {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    -ms-flex-preferred-size: 33.33333333333%;
-    flex-basis: 33.33333333333%; }
-  .sheet-group h2 {
-    text-align: center;
-    font-weight: 400;
-    display: inline-block;
-    background: white;
-    position: absolute;
-    margin: 0;
-    top: 0;
-    left: 50%;
-    padding: 0 5px;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    color: #ab3131;
-    font-weight: 600; }
-  .sheet-group label {
-    font-weight: normal;
-    margin-bottom: 0;
-    width: auto; }
-    .sheet-group label:after {
-      content: ':'; }
-  .sheet-group .sheet-p-rel {
-    position: relative;
-    top: 0;
-    left: 0;
-    -webkit-transform: none;
-    -ms-transform: none;
-    transform: none; }
-  .sheet-group input[type="text"], .sheet-group input[type="number"] {
-    width: 100%;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    box-sizing: border-box;
-    text-align: right;
-    border: 0;
-    font-weight: bold;
-    font-family: sans-serif;
-    outline: none; }
-    .sheet-group input[type="text"].sheet-al, .sheet-group input[type="number"].sheet-al {
-      text-align: left; }
-    .sheet-group input[type="text"]::-webkit-input-placeholder, .sheet-group input[type="number"]::-webkit-input-placeholder {
-      font-family: 'Quicksand', sans-serif;
-      font-weight: normal;
-      color: black; }
-    .sheet-group input[type="text"]:-ms-input-placeholder, .sheet-group input[type="number"]:-ms-input-placeholder {
-      font-family: 'Quicksand', sans-serif;
-      font-weight: normal;
-      color: black; }
-    .sheet-group input[type="text"]::-ms-input-placeholder, .sheet-group input[type="number"]::-ms-input-placeholder {
-      font-family: 'Quicksand', sans-serif;
-      font-weight: normal;
-      color: black; }
-    .sheet-group input[type="text"]::placeholder, .sheet-group input[type="number"]::placeholder {
-      font-family: 'Quicksand', sans-serif;
-      font-weight: normal;
-      color: black; }
-  .sheet-group textarea {
-    width: 100%;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border: 0;
-    resize: vertical;
-    padding: 0;
-    outline: none; }
-  .sheet-group .sheet-row {
-    border-bottom: 1px solid #DDD; }
-    .sheet-group .sheet-row:last-child {
-      border-bottom: 0; }
+  position: relative;
+}
+.sheet-group .sheet-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.sheet-group .sheet-attribute-simple input, .sheet-group .sheet-attribute-simple label,
+.sheet-group .sheet-attribute-with-card input,
+.sheet-group .sheet-attribute-with-card label {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+.sheet-group .sheet-attribute-combat input, .sheet-group .sheet-attribute-combat label {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-preferred-size: 33.3333333333%;
+      flex-basis: 33.3333333333%;
+}
+.sheet-group h2 {
+  text-align: center;
+  font-weight: 400;
+  display: inline-block;
+  background: white;
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 50%;
+  padding: 0 5px;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #ab3131;
+  font-weight: 600;
+}
+.sheet-group label {
+  font-weight: normal;
+  margin-bottom: 0;
+  width: auto;
+}
+.sheet-group label:after {
+  content: ":";
+}
+.sheet-group .sheet-p-rel {
+  position: relative;
+  top: 0;
+  left: 0;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+}
+.sheet-group input[type=text], .sheet-group input[type=number] {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: right;
+  border: 0;
+  font-weight: bold;
+  font-family: sans-serif;
+  outline: none;
+}
+.sheet-group input[type=text].sheet-al, .sheet-group input[type=number].sheet-al {
+  text-align: left;
+}
+.sheet-group input[type=text]::-webkit-input-placeholder, .sheet-group input[type=number]::-webkit-input-placeholder {
+  font-family: "Quicksand", sans-serif;
+  font-weight: normal;
+  color: black;
+}
+.sheet-group input[type=text]::-moz-placeholder, .sheet-group input[type=number]::-moz-placeholder {
+  font-family: "Quicksand", sans-serif;
+  font-weight: normal;
+  color: black;
+}
+.sheet-group input[type=text]:-ms-input-placeholder, .sheet-group input[type=number]:-ms-input-placeholder {
+  font-family: "Quicksand", sans-serif;
+  font-weight: normal;
+  color: black;
+}
+.sheet-group input[type=text]::-ms-input-placeholder, .sheet-group input[type=number]::-ms-input-placeholder {
+  font-family: "Quicksand", sans-serif;
+  font-weight: normal;
+  color: black;
+}
+.sheet-group input[type=text]::placeholder, .sheet-group input[type=number]::placeholder {
+  font-family: "Quicksand", sans-serif;
+  font-weight: normal;
+  color: black;
+}
+.sheet-group textarea {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 0;
+  resize: vertical;
+  padding: 0;
+  outline: none;
+}
+.sheet-group .sheet-row {
+  border-bottom: 1px solid #DDD;
+}
+.sheet-group .sheet-row:last-child {
+  border-bottom: 0;
+}
 
 .sheet-abilities h3 {
   background: #eee;
@@ -173,14 +213,14 @@ input {
   border-radius: 5px;
   padding: 0;
   text-align: center;
-  margin: 0; }
-
+  margin: 0;
+}
 .sheet-abilities .sheet-ability-score input {
   text-align: left !important;
-  font-size: 36px; }
-
+  font-size: 36px;
+}
 .sheet-abilities .sheet-ability-score:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -191,79 +231,86 @@ input {
   opacity: 0.1;
   top: 0;
   right: 0;
-  pointer-events: none; }
-
+  pointer-events: none;
+}
 .sheet-abilities .sheet-ability-score.sheet-agility:after {
-  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-agility-new.png"); }
-
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-agility-new.png");
+}
 .sheet-abilities .sheet-ability-score.sheet-dexterity:after {
-  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-dexterity-new.png"); }
-
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-dexterity-new.png");
+}
 .sheet-abilities .sheet-ability-score.sheet-endurance:after {
-  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-endurance-new.png"); }
-
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-endurance-new.png");
+}
 .sheet-abilities .sheet-ability-score.sheet-strength:after {
-  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-strength-new-2.png"); }
-
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-strength-new-2.png");
+}
 .sheet-abilities .sheet-ability-score.sheet-reason:after {
-  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-reason-new.png"); }
-
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-reason-new.png");
+}
 .sheet-abilities .sheet-ability-score.sheet-perception:after {
-  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-perception-new.png"); }
-
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-perception-new.png");
+}
 .sheet-abilities .sheet-ability-score.sheet-spirit:after {
-  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-spirit-new.png"); }
-
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-spirit-new.png");
+}
 .sheet-abilities .sheet-ability-score.sheet-presence:after {
-  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-presence-new.png"); }
-
+  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/codes/code-presence-new.png");
+}
 .sheet-abilities .sheet-ability-codes {
-  padding-top: 0px; }
-
+  padding-top: 0px;
+}
 .sheet-abilities .sheet-ability-code .sheet-flex-container {
   -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  width: 100%; }
-
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+}
 .sheet-abilities .sheet-ability-code input {
   -webkit-box-flex: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
   -ms-flex-preferred-size: 50%;
-  flex-basis: 50%;
+      flex-basis: 50%;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
+       appearance: none;
   height: 20px;
   outline: none;
   text-align: center;
   border: 0;
-  margin: 0; }
-  .sheet-abilities .sheet-ability-code input[value=A]:after {
-    content: 'A'; }
-  .sheet-abilities .sheet-ability-code input[value=B]:after {
-    content: 'B'; }
-  .sheet-abilities .sheet-ability-code input[value=C]:after {
-    content: 'C'; }
-  .sheet-abilities .sheet-ability-code input[value=D]:after {
-    content: 'D'; }
-  .sheet-abilities .sheet-ability-code input[value=X]:after {
-    content: 'X'; }
-
+  margin: 0;
+}
+.sheet-abilities .sheet-ability-code input[value=A]:after {
+  content: "A";
+}
+.sheet-abilities .sheet-ability-code input[value=B]:after {
+  content: "B";
+}
+.sheet-abilities .sheet-ability-code input[value=C]:after {
+  content: "C";
+}
+.sheet-abilities .sheet-ability-code input[value=D]:after {
+  content: "D";
+}
+.sheet-abilities .sheet-ability-code input[value=X]:after {
+  content: "X";
+}
 .sheet-abilities .sheet-ability-code input:checked {
   background: #333;
   color: white;
-  border-radius: 3px; }
-  .sheet-abilities .sheet-ability-code input:checked:after {
-    font-weight: bold;
-    font-family: sans-serif; }
+  border-radius: 3px;
+}
+.sheet-abilities .sheet-ability-code input:checked:after {
+  font-weight: bold;
+  font-family: sans-serif;
+}
 
 .sheet-modal {
   width: 50%;
   min-width: 340px;
   -webkit-box-shadow: 0 0 20px;
-  box-shadow: 0 0 20px;
+          box-shadow: 0 0 20px;
   padding: 15px;
   background: white;
   z-index: 2;
@@ -272,104 +319,138 @@ input {
   margin-bottom: 0;
   text-align: left;
   position: relative;
-  pointer-events: all; }
-  .sheet-modal label:after {
-    content: none; }
-  .sheet-modal .sheet-steps, .sheet-modal .sheet-navigation {
-    position: relative;
-    z-index: 1; }
-  .sheet-modal .sheet-steps > div {
-    display: none; }
-  .sheet-modal h2 {
-    position: relative;
-    width: calc(100% + 30px);
-    padding: 20px 10px;
-    top: 0;
-    left: 0;
-    margin-top: -15px;
-    margin-left: -15px;
-    display: block;
-    -webkit-transform: none;
-    -ms-transform: none;
-    transform: none;
-    font-size: 18px;
-    font-weight: bold;
-    border-bottom: 1px solid #CCC;
-    background: transparent;
-    pointer-events: none;
-    color: #333; }
-  .sheet-modal h3 {
-    margin: 10px 0;
-    color: #ab3131; }
-  .sheet-modal .sheet-spell-cost h3 {
-    color: #453f3f;
-    text-transform: uppercase;
-    font-weight: normal; }
-    .sheet-modal .sheet-spell-cost h3 span {
-      font-weight: 600; }
-  .sheet-modal p {
-    margin-top: 10px; }
-  .sheet-modal input[name="attr_spell_step"][value="1"] ~ .sheet-steps .sheet-step-1:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="2"] ~ .sheet-steps .sheet-step-2:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="3"] ~ .sheet-steps .sheet-step-3:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="4"] ~ .sheet-steps .sheet-step-4:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="5"] ~ .sheet-steps .sheet-step-5:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="6"] ~ .sheet-steps .sheet-step-6:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="7"] ~ .sheet-steps .sheet-step-7:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="8"] ~ .sheet-steps .sheet-step-8:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="9"] ~ .sheet-steps .sheet-step-9:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="6"] ~ input[name="attr_spell_area_of_effect"][value="0"] ~ .sheet-steps .sheet-step-6.sheet-0 {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="6"] ~ input[name="attr_spell_area_of_effect"][value="1"] ~ .sheet-steps .sheet-step-6.sheet-1 {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="6"] ~ input[name="attr_spell_area_of_effect"][value="2"] ~ .sheet-steps .sheet-step-6.sheet-2 {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="8"] ~ input[name="attr_spell_effect"][value="0"] ~ .sheet-steps .sheet-step-8.sheet-0 {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="8"] ~ input[name="attr_spell_effect"][value="1"] ~ .sheet-steps .sheet-step-8.sheet-1 {
-    display: block; }
-  .sheet-modal input[name="attr_spell_step"][value="8"] ~ input[name="attr_spell_effect"][value="2"] ~ .sheet-steps .sheet-step-8.sheet-2 {
-    display: block; }
-  .sheet-modal input[type="radio"] {
-    margin-right: 5px;
-    vertical-align: middle; }
-  .sheet-modal label {
-    margin-top: 10px; }
-  .sheet-modal .sheet-attribute-pick {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    border-bottom: 0; }
-    .sheet-modal .sheet-attribute-pick label, .sheet-modal .sheet-attribute-pick span {
-      -webkit-box-flex: 1;
+  pointer-events: all;
+}
+.sheet-modal label:after {
+  content: none;
+}
+.sheet-modal .sheet-steps, .sheet-modal .sheet-navigation {
+  position: relative;
+  z-index: 1;
+}
+.sheet-modal .sheet-steps > div {
+  display: none;
+}
+.sheet-modal h2 {
+  position: relative;
+  width: calc(100% + 30px);
+  padding: 20px 10px;
+  top: 0;
+  left: 0;
+  margin-top: -15px;
+  margin-left: -15px;
+  display: block;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 1px solid #CCC;
+  background: transparent;
+  pointer-events: none;
+  color: #333;
+}
+.sheet-modal h3 {
+  margin: 10px 0;
+  color: #ab3131;
+}
+.sheet-modal .sheet-spell-cost h3 {
+  color: #453f3f;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.sheet-modal .sheet-spell-cost h3 span {
+  font-weight: 600;
+}
+.sheet-modal p {
+  margin-top: 10px;
+}
+.sheet-modal input[name=attr_spell_step][value="1"] ~ .sheet-steps .sheet-step-1:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="2"] ~ .sheet-steps .sheet-step-2:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="3"] ~ .sheet-steps .sheet-step-3:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="4"] ~ .sheet-steps .sheet-step-4:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="5"] ~ .sheet-steps .sheet-step-5:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="6"] ~ .sheet-steps .sheet-step-6:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="7"] ~ .sheet-steps .sheet-step-7:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="8"] ~ .sheet-steps .sheet-step-8:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="9"] ~ .sheet-steps .sheet-step-9:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="6"] ~ input[name=attr_spell_area_of_effect][value="0"] ~ .sheet-steps .sheet-step-6.sheet-0 {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="6"] ~ input[name=attr_spell_area_of_effect][value="1"] ~ .sheet-steps .sheet-step-6.sheet-1 {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="6"] ~ input[name=attr_spell_area_of_effect][value="2"] ~ .sheet-steps .sheet-step-6.sheet-2 {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="8"] ~ input[name=attr_spell_effect][value="0"] ~ .sheet-steps .sheet-step-8.sheet-0 {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="8"] ~ input[name=attr_spell_effect][value="1"] ~ .sheet-steps .sheet-step-8.sheet-1 {
+  display: block;
+}
+.sheet-modal input[name=attr_spell_step][value="8"] ~ input[name=attr_spell_effect][value="2"] ~ .sheet-steps .sheet-step-8.sheet-2 {
+  display: block;
+}
+.sheet-modal input[type=radio] {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.sheet-modal label {
+  margin-top: 10px;
+}
+.sheet-modal .sheet-attribute-pick {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 0;
+}
+.sheet-modal .sheet-attribute-pick label, .sheet-modal .sheet-attribute-pick span {
+  -webkit-box-flex: 1;
       -ms-flex-positive: 1;
-      flex-grow: 1;
-      -ms-flex-preferred-size: 50%;
-      flex-basis: 50%; }
-    .sheet-modal .sheet-attribute-pick label {
-      margin-top: 0px; }
-    .sheet-modal .sheet-attribute-pick span {
-      text-align: right; }
-    .sheet-modal .sheet-attribute-pick label:after {
-      content: none; }
-    .sheet-modal .sheet-attribute-pick input {
-      margin-right: 5px;
-      vertical-align: middle; }
-    .sheet-modal .sheet-attribute-pick:not(:first-child) {
-      margin-top: 10px; }
-  .sheet-modal .sheet-navigation {
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+          flex-grow: 1;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+.sheet-modal .sheet-attribute-pick label {
+  margin-top: 0px;
+}
+.sheet-modal .sheet-attribute-pick span {
+  text-align: right;
+}
+.sheet-modal .sheet-attribute-pick label:after {
+  content: none;
+}
+.sheet-modal .sheet-attribute-pick input {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.sheet-modal .sheet-attribute-pick:not(:first-child) {
+  margin-top: 10px;
+}
+.sheet-modal .sheet-navigation {
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
 
 .sheet-blocker {
   background: rgba(0, 0, 0, 0.5);
@@ -380,7 +461,8 @@ input {
   left: -5px;
   z-index: 1;
   cursor: pointer;
-  pointer-events: all; }
+  pointer-events: all;
+}
 
 .sheet-blocking-modal {
   display: -webkit-box;
@@ -388,14 +470,14 @@ input {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
   min-height: 100vh;
   background: transparent;
@@ -405,79 +487,98 @@ input {
   top: 0;
   left: 0;
   z-index: 1;
-  pointer-events: none; }
+  pointer-events: none;
+}
 
-input[name="attr_designing_spell"][value="0"] ~ .sheet-blocking-modal {
-  display: none; }
+input[name=attr_designing_spell][value="0"] ~ .sheet-blocking-modal {
+  display: none;
+}
 
 .sheet-step-1 input {
   border-bottom: 1px solid #DDD !important;
   padding: 10px 0;
-  margin: 5px 0 20px 0; }
+  margin: 5px 0 20px 0;
+}
 
 button.sheet-save {
-  display: none; }
+  display: none;
+}
 
-input[name="attr_spell_step"][value="9"] ~ .sheet-navigation button.sheet-save {
-  display: block; }
-
-input[name="attr_spell_step"][value="9"] ~ .sheet-navigation button.sheet-next {
-  display: none; }
+input[name=attr_spell_step][value="9"] ~ .sheet-navigation button.sheet-save {
+  display: block;
+}
+input[name=attr_spell_step][value="9"] ~ .sheet-navigation button.sheet-next {
+  display: none;
+}
 
 .sheet-spells {
   width: calc(100% + 10px);
-  margin-left: -5px; }
-  .sheet-spells .repcontainer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse; }
-    .sheet-spells .repcontainer .repitem {
-      -webkit-box-flex: 1;
+  margin-left: -5px;
+}
+.sheet-spells .repcontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.sheet-spells .repcontainer .repitem {
+  -webkit-box-flex: 1;
       -ms-flex-positive: 1;
-      flex-grow: 1;
-      -ms-flex-preferred-size: 50%;
+          flex-grow: 1;
+  -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
-      padding: 10px;
-      border: 1px solid #DDD;
-      border-radius: 5px;
-      overflow: hidden;
-      margin: 10px 5px; }
-      .sheet-spells .repcontainer .repitem input, .sheet-spells .repcontainer .repitem textarea {
-        width: 100%;
-        padding: 0;
-        border: 0; }
-        .sheet-spells .repcontainer .repitem input:focus, .sheet-spells .repcontainer .repitem textarea:focus {
-          padding: 5px;
-          border: 1px solid #ccc; }
-      .sheet-spells .repcontainer .repitem textarea {
-        position: absolute;
-        left: 10px;
-        opacity: 0; }
-      .sheet-spells .repcontainer .repitem textarea + span {
-        display: block; }
-      .sheet-spells .repcontainer .repitem textarea:focus {
-        position: relative;
-        left: auto;
-        opacity: 1; }
-      .sheet-spells .repcontainer .repitem textarea:focus + span {
-        display: none; }
-  .sheet-spells .repcontrol {
-    display: none; }
+  padding: 10px;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 5px;
+}
+.sheet-spells .repcontainer .repitem input, .sheet-spells .repcontainer .repitem textarea {
+  width: 100%;
+  padding: 0;
+  border: 0;
+}
+.sheet-spells .repcontainer .repitem input:focus, .sheet-spells .repcontainer .repitem textarea:focus {
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+.sheet-spells .repcontainer .repitem textarea {
+  position: absolute;
+  left: 10px;
+  opacity: 0;
+}
+.sheet-spells .repcontainer .repitem textarea + span {
+  display: block;
+}
+.sheet-spells .repcontainer .repitem textarea:focus {
+  position: relative;
+  left: auto;
+  opacity: 1;
+}
+.sheet-spells .repcontainer .repitem textarea:focus + span {
+  display: none;
+}
+.sheet-spells .repcontrol {
+  display: none;
+}
 
 textarea {
-  margin-bottom: -5px !important; }
+  margin-bottom: -5px !important;
+}
 
 span.sheet-max {
   font-weight: 600;
-  margin-left: 3px; }
-  span.sheet-max:before {
-    content: '('; }
-  span.sheet-max:after {
-    content: ')'; }
+  margin-left: 3px;
+}
+span.sheet-max:before {
+  content: "(";
+}
+span.sheet-max:after {
+  content: ")";
+}
 
 button:not(.sheet-blocker) {
   width: 100%;
@@ -488,163 +589,209 @@ button:not(.sheet-blocker) {
   background: #fff;
   color: #333;
   border: 1px solid #acacac;
-  font-weight: 600; }
-  button:not(.sheet-blocker):hover {
-    border: 1px solid #333;
-    background: #333;
-    color: #fff; }
+  font-weight: 600;
+}
+button:not(.sheet-blocker):hover {
+  border: 1px solid #333;
+  background: #333;
+  color: #fff;
+}
 
 button.sheet-primary {
   border: 1px solid #ab3131;
   background: #fff;
-  color: #ab3131; }
-  button.sheet-primary:hover {
-    border: 1px solid #ab3131;
-    background: #ab3131;
-    color: #fff; }
+  color: #ab3131;
+}
+button.sheet-primary:hover {
+  border: 1px solid #ab3131;
+  background: #ab3131;
+  color: #fff;
+}
 
 .repeating_cards ~ .repcontainer {
   position: relative;
-  height: 286px; }
-  .repeating_cards ~ .repcontainer .repitem {
-    display: inline-block;
-    width: 200px;
-    height: 286px; }
+  height: 286px;
+  white-space: nowrap;
+}
+.repeating_cards ~ .repcontainer .repitem {
+  display: inline-block;
+  width: 200px;
+  height: 286px;
+}
 
-input[name="attr_hand"] ~ .repcontainer .repitem {
+input[name=attr_player_hand_size] ~ .repcontainer .repitem {
   max-width: 200px;
   width: 200px;
   -webkit-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out; }
+  transition: all 0.5s ease-out;
+}
 
-input[name="attr_hand"][value="2"] ~ .repcontainer .repitem:not(:first-child) {
+input[name=attr_player_hand_size][value="2"] ~ .repcontainer .repitem:not(:first-child) {
+  width: calc(calc(100% - 200px) / 1);
+  max-width: 210px;
+}
+
+input[name=attr_player_hand_size][value="3"] ~ .repcontainer .repitem:not(:first-child) {
   width: calc(calc(100% - 200px) / 2);
-  max-width: 210px; }
+  max-width: 210px;
+}
 
-input[name="attr_hand"][value="3"] ~ .repcontainer .repitem:not(:first-child) {
+input[name=attr_player_hand_size][value="4"] ~ .repcontainer .repitem:not(:first-child) {
   width: calc(calc(100% - 200px) / 3);
-  max-width: 210px; }
+  max-width: 210px;
+}
 
-input[name="attr_hand"][value="4"] ~ .repcontainer .repitem:not(:first-child) {
+input[name=attr_player_hand_size][value="5"] ~ .repcontainer .repitem:not(:first-child) {
   width: calc(calc(100% - 200px) / 4);
-  max-width: 210px; }
+  max-width: 210px;
+}
 
-input[name="attr_hand"][value="5"] ~ .repcontainer .repitem:not(:first-child) {
+input[name=attr_player_hand_size][value="6"] ~ .repcontainer .repitem:not(:first-child) {
   width: calc(calc(100% - 200px) / 5);
-  max-width: 210px; }
+  max-width: 210px;
+}
 
-input[name="attr_hand"][value="6"] ~ .repcontainer .repitem:not(:first-child) {
+input[name=attr_player_hand_size][value="7"] ~ .repcontainer .repitem:not(:first-child) {
   width: calc(calc(100% - 200px) / 6);
-  max-width: 210px; }
+  max-width: 210px;
+}
 
-input[name="attr_hand"][value="7"] ~ .repcontainer .repitem:not(:first-child) {
+input[name=attr_player_hand_size][value="8"] ~ .repcontainer .repitem:not(:first-child) {
   width: calc(calc(100% - 200px) / 7);
-  max-width: 210px; }
+  max-width: 210px;
+}
 
-input[name="attr_hand"][value="8"] ~ .repcontainer .repitem:not(:first-child) {
+input[name=attr_player_hand_size][value="9"] ~ .repcontainer .repitem:not(:first-child) {
   width: calc(calc(100% - 200px) / 8);
-  max-width: 210px; }
+  max-width: 210px;
+}
 
-input[name="attr_hand"][value="9"] ~ .repcontainer .repitem:not(:first-child) {
+input[name=attr_player_hand_size][value="10"] ~ .repcontainer .repitem:not(:first-child) {
   width: calc(calc(100% - 200px) / 9);
-  max-width: 210px; }
+  max-width: 210px;
+}
 
-input[name="attr_hand"] ~ .repcontainer .repitem:first-child .sheet-card {
-  margin-left: 0; }
+input[name=attr_player_hand_size] ~ .repcontainer .repitem:first-child .sheet-card {
+  margin-left: 0;
+}
 
-input[name="attr_hand"] ~ .repcontainer .repitem:hover {
+input[name=attr_player_hand_size] ~ .repcontainer .repitem:hover {
   -webkit-transform: translateY(-25%);
-  -ms-transform: translateY(-25%);
-  transform: translateY(-25%); }
+      -ms-transform: translateY(-25%);
+          transform: translateY(-25%);
+}
 
 .sheet-card {
   width: 200px;
   height: 286px;
   margin-left: calc(100% - 200px);
-  display: inline-block; }
-  .sheet-card .sheet-discard {
-    display: none;
-    position: absolute;
-    top: -40px;
-    left: 0; }
-  .sheet-card:hover .sheet-discard {
-    display: block; }
-  .sheet-card .sheet-mask {
-    overflow: hidden;
-    width: 200px;
-    height: 286px;
-    position: relative;
-    border-radius: 8px;
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
-  .sheet-card .sheet-texture {
-    position: absolute;
-    background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/fatedeck/fate_deck.jpg");
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 1000%;
-    height: 900%;
-    left: 0;
-    top: 0;
-    pointer-events: none;
-    cursor: default; }
-  .sheet-card input[name='attr_suit'][value='1'] ~ .sheet-mask .sheet-texture {
-    top: calc(-100% * 1); }
-  .sheet-card input[name='attr_suit'][value='2'] ~ .sheet-mask .sheet-texture {
-    top: calc(-100% * 2); }
-  .sheet-card input[name='attr_suit'][value='3'] ~ .sheet-mask .sheet-texture {
-    top: calc(-100% * 3); }
-  .sheet-card input[name='attr_suit'][value='4'] ~ .sheet-mask .sheet-texture {
-    top: calc(-100% * 4); }
-  .sheet-card input[name='attr_suit'][value='5'] ~ .sheet-mask .sheet-texture {
-    top: calc(-100% * 5); }
-  .sheet-card input[name='attr_suit'][value='6'] ~ .sheet-mask .sheet-texture {
-    top: calc(-100% * 6); }
-  .sheet-card input[name='attr_suit'][value='7'] ~ .sheet-mask .sheet-texture {
-    top: calc(-100% * 7); }
-  .sheet-card input[name='attr_value'][value='1'] ~ .sheet-mask .sheet-texture {
-    left: calc(-100% * 0); }
-  .sheet-card input[name='attr_value'][value='2'] ~ .sheet-mask .sheet-texture {
-    left: calc(-100% * 1); }
-  .sheet-card input[name='attr_value'][value='3'] ~ .sheet-mask .sheet-texture {
-    left: calc(-100% * 2); }
-  .sheet-card input[name='attr_value'][value='4'] ~ .sheet-mask .sheet-texture {
-    left: calc(-100% * 3); }
-  .sheet-card input[name='attr_value'][value='5'] ~ .sheet-mask .sheet-texture {
-    left: calc(-100% * 4); }
-  .sheet-card input[name='attr_value'][value='6'] ~ .sheet-mask .sheet-texture {
-    left: calc(-100% * 5); }
-  .sheet-card input[name='attr_value'][value='7'] ~ .sheet-mask .sheet-texture {
-    left: calc(-100% * 6); }
-  .sheet-card input[name='attr_value'][value='8'] ~ .sheet-mask .sheet-texture {
-    left: calc(-100% * 7); }
-  .sheet-card input[name='attr_value'][value='9'] ~ .sheet-mask .sheet-texture {
-    left: calc(-100% * 8); }
-
-button.sheet-draw {
+  display: inline-block;
+}
+.sheet-card .sheet-discard {
+  display: none;
+  position: absolute;
+  top: -40px;
+  left: 0;
+}
+.sheet-card:hover .sheet-discard {
+  display: block;
+}
+.sheet-card .sheet-mask {
+  overflow: hidden;
   width: 200px;
   height: 286px;
-  position: absolute;
-  top: 15px;
-  right: 10px;
-  background: #CCC;
+  position: relative;
+  border-radius: 8px;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  border: 0;
-  z-index: 10;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.sheet-card .sheet-texture {
+  position: absolute;
   background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/fatedeck/fate_deck.jpg");
-  background-size: 1000%;
+  background-position: top left;
   background-repeat: no-repeat;
-  background-position: right top; }
+  background-size: cover;
+  width: 1000%;
+  height: 900%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  cursor: default;
+}
+.sheet-card input[name=attr_suit][value="1"] ~ .sheet-mask .sheet-texture {
+  top: calc(-100% * 1);
+}
+.sheet-card input[name=attr_suit][value="2"] ~ .sheet-mask .sheet-texture {
+  top: calc(-100% * 2);
+}
+.sheet-card input[name=attr_suit][value="3"] ~ .sheet-mask .sheet-texture {
+  top: calc(-100% * 3);
+}
+.sheet-card input[name=attr_suit][value="4"] ~ .sheet-mask .sheet-texture {
+  top: calc(-100% * 4);
+}
+.sheet-card input[name=attr_suit][value="5"] ~ .sheet-mask .sheet-texture {
+  top: calc(-100% * 5);
+}
+.sheet-card input[name=attr_suit][value="6"] ~ .sheet-mask .sheet-texture {
+  top: calc(-100% * 6);
+}
+.sheet-card input[name=attr_suit][value="7"] ~ .sheet-mask .sheet-texture {
+  top: calc(-100% * 7);
+}
+.sheet-card input[name=attr_suit][value="8"] ~ .sheet-mask .sheet-texture {
+  top: calc(-100% * 8);
+}
+.sheet-card input[name=attr_value][value="1"] ~ .sheet-mask .sheet-texture {
+  left: calc(-100% * 0);
+}
+.sheet-card input[name=attr_value][value="2"] ~ .sheet-mask .sheet-texture {
+  left: calc(-100% * 1);
+}
+.sheet-card input[name=attr_value][value="3"] ~ .sheet-mask .sheet-texture {
+  left: calc(-100% * 2);
+}
+.sheet-card input[name=attr_value][value="4"] ~ .sheet-mask .sheet-texture {
+  left: calc(-100% * 3);
+}
+.sheet-card input[name=attr_value][value="5"] ~ .sheet-mask .sheet-texture {
+  left: calc(-100% * 4);
+}
+.sheet-card input[name=attr_value][value="6"] ~ .sheet-mask .sheet-texture {
+  left: calc(-100% * 5);
+}
+.sheet-card input[name=attr_value][value="7"] ~ .sheet-mask .sheet-texture {
+  left: calc(-100% * 6);
+}
+.sheet-card input[name=attr_value][value="8"] ~ .sheet-mask .sheet-texture {
+  left: calc(-100% * 7);
+}
+.sheet-card input[name=attr_value][value="9"] ~ .sheet-mask .sheet-texture {
+  left: calc(-100% * 8);
+}
+.sheet-card input[name=attr_value][value="10"] ~ .sheet-mask .sheet-texture {
+  left: calc(-100% * 9);
+}
 
-button.sheet-draw:hover {
-  background-image: url("https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/fatedeck/fate_deck.jpg");
-  background-size: 1000%;
-  background-repeat: no-repeat;
-  background-position: right top;
-  border: 0; }
+.repitem .sheet-card .sheet-draw {
+  display: none;
+}
+
+.repitem:first-child .sheet-card .sheet-draw {
+  display: block;
+}
+.repitem:first-child .sheet-card .sheet-discard {
+  display: none;
+}
+
+button.sheet-draw {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  margin-top: -286px;
+}
 
 .repcontrol {
-  display: none; }
+  display: none;
+}
