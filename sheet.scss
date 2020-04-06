@@ -526,93 +526,60 @@ button.sheet-primary {
 
 .repeating_cards ~ .repcontainer {
   position: relative;
+  height: 286px;
   .repitem {
     display: inline-block;
     width: 200px;
-    position: absolute;
-    top:0;
+    height: 286px;
   }
 }
-
-input[name="attr_hand"][value="1"] ~ .repcontainer {
-  .repitem:nth-child(2) {
-    left: calc(calc(100% - 200px) / 4);
-    
-  }
-  .repitem:nth-child(3) {
-    left: calc(calc(100% - 200px) / 4 * 2);
-    
-  }
-  .repitem:nth-child(4) {
-    left: calc(calc(100% - 200px) / 4 * 3);
-    
-  }
-  .repitem:nth-child(5) {
-    left: calc(calc(100% - 200px) / 4 * 4);
-    
+input[name="attr_hand"] ~ .repcontainer {
+  .repitem {
+    max-width: 200px;
+    width: 200px;
+    transition: all 0.5s ease-out;
   }
 }
-input[name="attr_hand"][value="2"] ~ .repcontainer {
-  .repitem:nth-child(2) {
-    left: calc(calc(100% - 200px) / 1);
-    
+@for $i from 2 through 9 {
+  input[name="attr_hand"][value="#{$i}"] ~ .repcontainer {
+    $prev: $i;
+    .repitem:not(:first-child) {
+      width: calc(calc(100% - 200px) / #{$prev});
+      max-width: 210px;
+    }
   }
 }
-input[name="attr_hand"][value="3"] ~ .repcontainer {
-  .repitem:nth-child(2) {
-    left: calc(calc(100% - 200px) / 2);
-    
-  }
-  .repitem:nth-child(3) {
-    left: calc(calc(100% - 200px) / 2 * 2);
-    
+input[name="attr_hand"] ~ .repcontainer .repitem:first-child {
+  .sheet-card {
+    margin-left: 0;
   }
 }
-input[name="attr_hand"][value="4"] ~ .repcontainer {
-  .repitem:nth-child(2) {
-    left: calc(calc(100% - 200px) / 3);
-    
-  }
-  .repitem:nth-child(3) {
-    left: calc(calc(100% - 200px) / 3 * 2);
-    
-  }
-  .repitem:nth-child(4) {
-    left: calc(calc(100% - 200px) / 3 * 3);
-    
-  }
+input[name="attr_hand"] ~ .repcontainer .repitem:hover {
+  transform: translateY(-25%);
 }
-input[name="attr_hand"][value="5"] ~ .repcontainer {
-  .repitem:nth-child(2) {
-    left: calc(calc(100% - 200px) / 4);
-    
-  }
-  .repitem:nth-child(3) {
-    left: calc(calc(100% - 200px) / 4 * 2);
-    
-  }
-  .repitem:nth-child(4) {
-    left: calc(calc(100% - 200px) / 4 * 3);
-    
-  }
-  .repitem:nth-child(5) {
-    left: calc(calc(100% - 200px) / 4 * 4);
-    
-  }
-}
-
 .sheet-card {
-  width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 0 5px rgba(0,0,0,0.75);
+  width: 200px;
+  height: 286px;
+  margin-left: calc(100% - 200px);
   display: inline-block;
-  img {
-    z-index: 0;
-    width: 100%;
-    height: auto;
-    
+  .sheet-discard {
+    display: none;
+    position: absolute;
+    top: -40px;
+    left: 0;
+  }
+  &:hover {
+    .sheet-discard {
+      display: block;
+    }
+  }
+  .sheet-mask {
+    overflow: hidden;
+    width: 200px;
+    height: 286px;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
   }
   .sheet-texture {
     position: absolute;
@@ -627,62 +594,41 @@ input[name="attr_hand"][value="5"] ~ .repcontainer {
     pointer-events: none;
     cursor: default;
   }
-  input[name='attr_suit'][value='0'] ~ .sheet-texture {
-    //
+  @for $i from 1 through 7 {
+    input[name='attr_suit'][value='#{$i}'] ~ .sheet-mask .sheet-texture {
+      top: calc(-100% * #{$i});
+    }
   }
-  input[name='attr_suit'][value='1'] ~ .sheet-texture {
-    top: calc(-100% * 1);
+  @for $i from 1 through 9 {
+    input[name='attr_value'][value='#{$i}'] ~ .sheet-mask .sheet-texture {
+      $prev: $i - 1;
+      left: calc(-100% * #{$prev});
+    }
   }
-  input[name='attr_suit'][value='2'] ~ .sheet-texture {
-    top: calc(-100% * 2);
-  }
-  input[name='attr_suit'][value='3'] ~ .sheet-texture {
-    top: calc(-100% * 3);
-  }
-  input[name='attr_suit'][value='4'] ~ .sheet-texture {
-    top: calc(-100% * 4);
-  }
-  input[name='attr_suit'][value='5'] ~ .sheet-texture {
-    top: calc(-100% * 5);
-  }
-  input[name='attr_suit'][value='6'] ~ .sheet-texture {
-    top: calc(-100% * 6);
-  }
-  input[name='attr_suit'][value='7'] ~ .sheet-texture {
-    top: calc(-100% * 7);
-  }
-  input[name='attr_suit'][value='7'] ~ .sheet-texture {
-    top: calc(-100% * 8);
-  }
+}
 
-  input[name='attr_value'][value='0'] ~ .sheet-texture {
-    //
-  }
-  input[name='attr_value'][value='1'] ~ .sheet-texture {
-    left: -100%;
-  }
-  input[name='attr_value'][value='2'] ~ .sheet-texture {
-    left: calc(-100% * 1);
-  }
-  input[name='attr_value'][value='3'] ~ .sheet-texture {
-    left: calc(-100% * 2);
-  }
-  input[name='attr_value'][value='4'] ~ .sheet-texture {
-    left: calc(-100% * 3);
-  }
-  input[name='attr_value'][value='5'] ~ .sheet-texture {
-    left: calc(-100% * 4);
-  }
-  input[name='attr_value'][value='6'] ~ .sheet-texture {
-    left: calc(-100% * 5);
-  }
-  input[name='attr_value'][value='7'] ~ .sheet-texture {
-    left: calc(-100% * 6);
-  }
-  input[name='attr_value'][value='8'] ~ .sheet-texture {
-    left: calc(-100% * 7);
-  }
-  input[name='attr_value'][value='9'] ~ .sheet-texture {
-    left: calc(-100% * 8);
-  }
+button.sheet-draw {
+  width: 200px;
+  height: 286px;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background: #CCC;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  border: 0;
+  z-index: 10;
+  background-image: url('#{$externalImgsPath}fatedeck/fate_deck.jpg');
+  background-size: 1000%;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+button.sheet-draw:hover {
+  background-image: url('#{$externalImgsPath}fatedeck/fate_deck.jpg');
+  background-size: 1000%;
+  background-repeat: no-repeat;
+  background-position: right top;
+  border: 0;
+}
+.repcontrol {
+  display: none;
 }

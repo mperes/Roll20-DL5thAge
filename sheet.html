@@ -680,7 +680,7 @@
   </div>
 </div>
 <div class="sheet-group">
-  <button type="action" name="act_draw">Draw</button>
+  <button class="draw" type="action" name="act_draw"></button>
   <input type="hidden" name="attr_hand"/>
   <fieldset class="repeating_cards">
     <div class="card">
@@ -689,13 +689,74 @@
       <input type="hidden" name="attr_demeanor"/>
       <input type="hidden" name="attr_nature"/>
       <input type="hidden" name="attr_value"/>
-      <input type="hidden" name="attr_name"/><img src="https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/fatedeck/empty.png"/>
-      <div class="texture"></div>
+      <input type="hidden" name="attr_name"/>
+      <button class="discard" type="action" name="act_discard">Discard</button>
+      <div class="mask">
+        <div class="texture"></div>
+      </div>
     </div>
   </fieldset>
 </div>
 <script type="text/worker">
-  const CARD_RED = 0;
+  class SheetUtils {
+    static getUID(value) {
+        const regexp = /-.{19}(?=_)|-.{19}$/g;
+        const valueAsString = String(value);
+        const match = valueAsString.match(regexp);
+        return (match) ? match.join() : "";
+    }
+    static toLowerCase(value) {
+        if(Array.isArray(value)) {
+            const lowerCaseArray = value.map(item => { return item.toLowerCase(); });
+            return lowerCaseArray;
+        }
+        return String(value).toLowerCase();
+    }
+    static toCapitalCase(value) {
+        if(Array.isArray(value)) {
+            const capitalCaseArray = value.map(item => { return item[0].toUpperCase() + item.toLowerCase().slice(1); });
+            return capitalCaseArray;
+        }
+        return String(value)[0].toUpperCase() + String(value).toLowerCase().slice(1);
+    }
+    static getSectionOrder(section, callback) {
+        const sectionName = `repeating_${section}`;
+        const attributeName = `_reporder_${sectionName}`;
+        getAttrs([attributeName], attributes => {
+            let values = new Array();
+            Object.keys(attributes).some(() => {
+                let results = SheetUtils.toLowerCase(attributes[attributeName].replace(/ /g, '').split(','));
+                values = values.concat(results);
+                return true;
+            });
+            getSectionIDs(sectionName, ids => {
+                const filteredOrder = new Set();
+                const order = values.concat(SheetUtils.toLowerCase(ids));
+                order.forEach(item => {
+                    filteredOrder.add(item);
+                });
+                callback(Array.from(filteredOrder));
+            });
+        });
+    }
+    static deepReadAttribute(attr, callback, defaultValue) {
+        if(/^(@{).+}$/.test(String(attr)) === true) { 
+            const regExp = /@\{([^@\{\}]+)\}/;
+            const reference = regExp.exec(attr)[1];
+            var self = this;
+            getAttrs([reference], function(v) {
+                if(!v[reference]) { 
+                    callback(defaultValue);
+                } else {
+                    self.deepReadAttribute(v[reference], callback, defaultValue);
+                }
+            });
+        }
+        else {
+            callback(attr); 
+        }
+    }
+}const CARD_RED = 0;
 const CARD_BLACK = 1;
 const CARD_WHITE = 2;
 
@@ -1405,15 +1466,24 @@ const saveSpell = function() {
 }
 
 const drawCard = () => {
-    const randomCard = FATE_DECK[Math.round(Math.random() * (FATE_DECK.length-1))];
-    const rowUID = generateRowID();
-    let newCard = {};
-    Object.keys(randomCard).forEach(property => {
-        newCard[`repeating_cards_${rowUID}_${property}`] = randomCard[property];
+    getSectionIDs("cards", ids => {
+        if(ids.length >= 9) return;
+        const randomCard = FATE_DECK[Math.round(Math.random() * (FATE_DECK.length-1))];
+        const rowUID = generateRowID();
+        let newCard = {};
+        Object.keys(randomCard).forEach(property => {
+            newCard[`repeating_cards_${rowUID}_${property}`] = randomCard[property];
+        });
+        setAttrs(newCard, () => {
+            updateHandSize();
+        });
     });
-    setAttrs(newCard, () => {
-        updateHandSize();
-    });
+}
+
+const discardCard = uid => {
+    console.log(uid);
+    removeRepeatingRow(`repeating_cards_${uid}`);
+    updateHandSize();
 }
 
 const updateHandSize = () => {
@@ -1480,6 +1550,11 @@ on(changeSpellAttributes, eventInfo => {
 
 on('clicked:draw', () => {
     drawCard();
+});
+
+on('clicked:repeating_cards:discard', function(eventInfo) {
+    const uid = SheetUtils.getUID(eventInfo.sourceAttribute);
+    discardCard(uid);
 });
 
 on('clicked:save', ()=> {

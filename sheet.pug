@@ -273,7 +273,7 @@ input(name='attr_designing_spell' type='hidden' value='0')
       textarea.sheet-additional-information(name='attr_additional_information' rows='5')
   
 .sheet-group
-  button(type='action' name='act_draw') Draw
+  button.draw(type='action' name='act_draw')
   input(type='hidden', name='attr_hand')
   fieldset.repeating_cards
     .card
@@ -283,9 +283,11 @@ input(name='attr_designing_spell' type='hidden' value='0')
       input(type='hidden' name='attr_nature')
       input(type='hidden' name='attr_value')
       input(type='hidden' name='attr_name')
-      img(src='https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/fatedeck/empty.png')
-      .texture
+      button.discard(type='action' name='act_discard') Discard
+      .mask
+        .texture
 
 script(type="text/worker")
+  include SheetUtils.js
   include fateDeck.js
   include sheet.js

@@ -33,15 +33,24 @@ const saveSpell = function() {
 }
 
 const drawCard = () => {
-    const randomCard = FATE_DECK[Math.round(Math.random() * (FATE_DECK.length-1))];
-    const rowUID = generateRowID();
-    let newCard = {};
-    Object.keys(randomCard).forEach(property => {
-        newCard[`repeating_cards_${rowUID}_${property}`] = randomCard[property];
+    getSectionIDs("cards", ids => {
+        if(ids.length >= 9) return;
+        const randomCard = FATE_DECK[Math.round(Math.random() * (FATE_DECK.length-1))];
+        const rowUID = generateRowID();
+        let newCard = {};
+        Object.keys(randomCard).forEach(property => {
+            newCard[`repeating_cards_${rowUID}_${property}`] = randomCard[property];
+        });
+        setAttrs(newCard, () => {
+            updateHandSize();
+        });
     });
-    setAttrs(newCard, () => {
-        updateHandSize();
-    });
+}
+
+const discardCard = uid => {
+    console.log(uid);
+    removeRepeatingRow(`repeating_cards_${uid}`);
+    updateHandSize();
 }
 
 const updateHandSize = () => {
@@ -108,6 +117,11 @@ on(changeSpellAttributes, eventInfo => {
 
 on('clicked:draw', () => {
     drawCard();
+});
+
+on('clicked:repeating_cards:discard', function(eventInfo) {
+    const uid = SheetUtils.getUID(eventInfo.sourceAttribute);
+    discardCard(uid);
 });
 
 on('clicked:save', ()=> {
