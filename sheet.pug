@@ -119,7 +119,7 @@ input(name='attr_designing_spell' type='hidden' value='0')
           )
         .sheet-step-7
           h3 effect
-          .options
+          .sheet-options
             label
               input(name='attr_spell_effect' type='radio' value='0' checked)
               | numeric adjustments
@@ -272,23 +272,23 @@ input(name='attr_designing_spell' type='hidden' value='0')
       h2 additional information
       textarea.sheet-additional-information(name='attr_additional_information' rows='5')
   
-div(style="padding: 0 5px;")
+.sheet-fatedeck
   //-button.draw(type='action' name='act_draw')
   input(type='hidden', name='attr_player_hand' value ='')
   input(type='hidden', name='attr_player_hand_size' value='')
   input(type='hidden', name='attr_graveyard' value ='')
   fieldset.repeating_cards
-    .card
+    .sheet-card
       input(type='hidden' name='attr_color')
       input(type='hidden' name='attr_suit')
       input(type='hidden' name='attr_demeanor')
       input(type='hidden' name='attr_nature')
       input(type='hidden' name='attr_value')
       input(type='hidden' name='attr_name')
-      button.discard(type='action' name='act_discard') Discard
-      .mask
-        .texture
-      button.draw(type='action' name='act_draw')
+      button.sheet-discard(type='action' name='act_discard') Discard
+      .sheet-mask
+        .sheet-texture
+      button.sheet-draw(type='action' name='act_draw')
 
 script(type="text/worker")
   include SheetUtils.js

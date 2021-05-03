@@ -1,631 +1,727 @@
 $externalImgsPath: "https://raw.githubusercontent.com/mperes/Roll20-DL5thAge/master/img/";
 
-* {
-  box-sizing: border-box;
+html body {
+  .ui-dialog {
+    position: unset!important;
+  }
+  #macrobar {
+    display: none!important;
+  }
 }
-
-.sheet-flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: flex-start;
-  flex-direction: row;
-  max-width: 100%;
-}
-.sheet-grid-container {
-  display: grid;
-  align-items: start;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  .sheet-grid-col {
-    .sheet-grid-container {
-      grid-column-gap: 10px;
-      grid-row-gap: 10px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      &.sheet-small {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      }
+html body .characterviewer {
+  .nav-tabs {
+    display: none!important;
+    li:last-of-type {
+      display: none;
     }
   }
-}
-
-.sheet-character-sheet {
-  height: 100%;
-  position: relative;
-  font-family: sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  padding: 5px;
-}
-
-input, textarea, label, h2, h3 {
-  font-size: 14px;
-  line-height: 20px;
-  text-transform: capitalize;
-}
-input, textarea {
-  text-transform: none;
-}
-input::placeholder, textarea::placeholder {
-  text-transform: capitalize;
-}
-
-input {
-  padding: 1px 0;
-  font-weight: bold;
-  color: black;
-}
-
-.sheet-align-left {
-  text-align: left!important;
-}
-
-.sheet-group {
-  border-radius: 5px;
-  border: 1px solid #c0c0c0;
-  margin: 0 0 20px 0;
-  padding: 15px 10px;
-  position: relative;
-  
-  .sheet-row {
-    display:flex;
-  }
-  .sheet-attribute-simple, 
-  .sheet-attribute-with-card {
-    input, label {
-      flex-grow: 1;
-      flex-basis: 50%;
-    }
-  }
-  .sheet-attribute-combat {
-    input, label {
-      flex-grow: 1;
-      flex-basis: 33.33333333333%;
-    }
-  }
-
-  h2 {
-    text-align: center;
-    font-weight: 400;
-    display: inline-block;
-    background: white;
-    position: absolute;
-    margin: 0;
-    top: 0;
-    left: 50%;
-    padding: 0 5px;
-    transform: translate(-50%,-50%);
-    color: #ab3131;
-    font-weight: 600;
-  }
-  
-  label {
-    font-weight: normal;
-    margin-bottom: 0;
-    width: auto;
-    &:after {
-      content: ':';
-    }
-  }
-
-  .sheet-p-rel {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-  }
-
-  input[type="text"], input[type="number"] {
-    width: 100%;
-    box-sizing: border-box;
-    box-sizing: border-box;
-    text-align: right;
-    border: 0;
-    font-weight: bold;
-    font-family: sans-serif;
-    outline: none;
-    &.sheet-al {
-      text-align: left;
-    }
-    &::placeholder {
-      font-family: 'Quicksand', sans-serif;
-      font-weight: normal;
-      color: black;
-    }
-  }
-
-  textarea {
-    width: 100%;
-    box-sizing: border-box;
-    border: 0;
-    resize: vertical;
-    padding: 0;
-    outline: none;
-  }
-
-  .sheet-row {
-    border-bottom: 1px solid #DDD;
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
-}
-
-
-.sheet-abilities {
-  h3 {
-    background: #eee;
-    width: 100%;
-    border-radius: 5px;
-    padding: 0;
-    text-align: center;
-    margin: 0;
-  }
-
-  .sheet-ability-score {
-    input {
-      text-align: left!important;
-      font-size: 36px;
-    }
-    &:after {
-      content: '';
+  .tab-content {
+    .bioinfo {
+      $imgWidth: 170px;
+      display: inline-block!important;
+      display: inline-block !important;
       position: absolute;
-      width: 100%;
-      height: 100%;
-      display: block;
-      background-repeat: no-repeat;
-      background-position: right center;
-      background-size: contain;
-      opacity: 0.1;
-      top: 0;
-      right: 0;
-      pointer-events: none;
-    }
-
-    &.sheet-agility:after {
-      background-image: url('#{$externalImgsPath}codes/code-agility-new.png');
-    }
-    &.sheet-dexterity:after {
-      background-image: url('#{$externalImgsPath}codes/code-dexterity-new.png');
-    }
-    &.sheet-endurance:after {
-      background-image: url('#{$externalImgsPath}codes/code-endurance-new.png');
-    }
-    &.sheet-strength:after {
-      background-image: url('#{$externalImgsPath}codes/code-strength-new-2.png');
-    }
-    &.sheet-reason:after {
-      background-image: url('#{$externalImgsPath}codes/code-reason-new.png');
-    }
-    &.sheet-perception:after {
-      background-image: url('#{$externalImgsPath}codes/code-perception-new.png');
-    }
-    &.sheet-spirit:after {
-      background-image: url('#{$externalImgsPath}codes/code-spirit-new.png');
-    }
-    &.sheet-presence:after {
-      background-image: url('#{$externalImgsPath}codes/code-presence-new.png');
-    }
-  }
-
-  .sheet-ability-codes {
-    padding-top: 0px;
-  }
-  .sheet-ability-code {
-    .sheet-flex-container {
-      justify-content: flex-start;
-      width: 100%;
-    }
-    input {
-      flex-grow: 0;
-      flex-basis: 50%;
-      -webkit-appearance: none;
-      appearance: none;
-      height: 20px;
-      outline: none;
-      text-align: center;
-      border: 0;
-      margin: 0;
-      &[value=A] {
-        &:after {
-          content: 'A';
+      z-index: 2;
+      top: 200px;
+      left: 45px;
+      > .row-fluid:first-child {
+        display: inline-block!important;
+        > .span12 {
+          display: inline-block!important;
+          float: none!important;
+          width: $imgWidth!important;
+          .bio {
+            position: fixed!important;
+            top: -2000px!important;
+            left: -2000px!important;
+          }
+          .clear {
+            display: none!important;
+          }
+          .avatar {
+            float: none!important;
+            margin: 0!important;
+            width: $imgWidth!important;
+            position: unset!important;
+            height: 220px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            overflow: hidden;
+            img {
+              float: none!important;
+              width: $imgWidth!important;
+              height: auto!important;
+              max-height: $imgWidth*1.5!important;
+              display: block!important;
+            }
+          }
         }
       }
-      &[value=B] {
-        &:after {
-          content: 'B';
+      > .row-fluid:last-child {
+        display: none!important
+      }
+    }
+    .sheetform .charsheet:not(.charmancer) {
+      display: block!important;
+
+      * {
+        box-sizing: border-box;
+      }
+      
+      .sheet-flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: flex-start;
+        flex-direction: row;
+        max-width: 100%;
+      }
+      .sheet-grid-container {
+        display: grid;
+        align-items: start;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .sheet-grid-col {
+          .sheet-grid-container {
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            //grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            &.sheet-small {
+              grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+          }
         }
       }
-      &[value=C] {
-        &:after {
-          content: 'C';
-        }
-      }
-      &[value=D] {
-        &:after {
-          content: 'D';
-        }
-      }
-      &[value=X] {
-        &:after {
-          content: 'X';
-        }
-      }
-    }
-    input:checked {
-      background: #333;
-      color: white;
-      border-radius: 3px;
-      &:after {
-        font-weight: bold;
-        font-family: sans-serif;
-      }
-    } 
-  }
-}
-
-.sheet-modal {
-  width: 50%;
-  min-width: 340px;
-  box-shadow: 0 0 20px;
-  padding: 15px;
-  background: white;
-  z-index: 2;
-  border: 0;
-  border-radius: 5x;
-  margin-bottom: 0;
-  text-align: left;
-  position: relative;
-  pointer-events: all;
-  label:after {
-    content: none;
-  }
-  .sheet-steps, .sheet-navigation {
-    position: relative;
-    z-index: 1;
-  }
-  .sheet-steps > div {
-    display: none;
-  }
-  h2 {
-    position: relative;
-    width: calc(100% + 30px);
-    padding: 20px 10px;
-    top: 0;
-    left: 0;
-    margin-top: -15px;
-    margin-left: -15px;
-    display: block;
-    transform: none;
-    font-size: 18px;
-    font-weight: bold;
-    border-bottom: 1px solid #CCC;
-    background: transparent;
-    pointer-events: none;
-    color: #333
-  }
-  h3 {
-    margin: 10px 0;
-    color: #ab3131
-  }
-  .sheet-spell-cost h3 {
-    color: #453f3f;
-    text-transform: uppercase;
-    font-weight: normal;
-    span {
-      font-weight: 600;
-    }
-  }
-  p {
-    margin-top: 10px;
-  }
-  @for $i from 1 through 9 {
-    input[name="attr_spell_step"][value="#{$i}"] ~ .sheet-steps {
-      .sheet-step-#{$i}:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
-        display: block;
-      }
-    }
-  }
-  @for $i from 0 through 2 {
-    input[name="attr_spell_step"][value="6"] ~ input[name="attr_spell_area_of_effect"][value="#{$i}"] ~ .sheet-steps {
-      .sheet-step-6.sheet-#{$i} {
-        display: block;
-      }
-    }
-  }
-  @for $i from 0 through 2 {
-    input[name="attr_spell_step"][value="8"] ~ input[name="attr_spell_effect"][value="#{$i}"] ~ .sheet-steps {
-      .sheet-step-8.sheet-#{$i} {
-        display: block;
-      }
-    }
-  }
-
-  input[type="radio"] {
-    margin-right: 5px;
-    vertical-align: middle;
-  }
-  label {
-    margin-top: 10px;
-  }
-  .sheet-attribute-pick {
-    display: flex;
-    border-bottom: 0;
-    label, span {
-      flex-grow: 1;
-      flex-basis: 50%;
-    }
-    label {
-      margin-top: 0px;
-    }
-    span {
-      text-align: right;
-    }
-    label:after {
-      content: none;
-    }
-    input {
-      margin-right: 5px;
-      vertical-align: middle;
-    }
-    &:not(:first-child) {
-      margin-top: 10px;
-    }
-  }
-  .sheet-navigation {
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-}
-.sheet-blocker {
-  background: rgba(0,0,0,0.5);
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  z-index: 1;
-  cursor: pointer;
-  pointer-events: all;
-}
-
-.sheet-blocking-modal {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-  background: transparent;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-input[name="attr_designing_spell"][value="0"] ~ .sheet-blocking-modal {
-    display: none;
-}
-
-.sheet-step-1 {
-  input {
-    border-bottom: 1px solid #DDD!important;
-    padding: 10px 0;
-    margin: 5px 0 20px 0;
-  }
-}
-
-button.sheet-save {
-  display: none;
-}
-
-input[name="attr_spell_step"][value="9"] ~ .sheet-navigation {
-  button.sheet-save {
-    display: block;
-  }
-  button.sheet-next {
-    display: none;
-  }
-}
-
-.sheet-spells {
-  width: calc(100% + 10px);
-  margin-left: -5px;
-  .repcontainer {
-    display:flex;
-    flex-direction: row-reverse;
-    .repitem {
-      flex-grow: 1;
-      flex-basis: 50%;
-      padding: 10px;
-      border: 1px solid #DDD;
-      border-radius: 5px;
-      overflow: hidden;
-      margin: 10px 5px;
-      input, textarea {
-        width: 100%;
-        padding: 0;
-        border: 0;
-        &:focus {
-          padding: 5px;
-          border: 1px solid #ccc;
-        }
-      }
-      textarea {
-        position: absolute;
-        left: 10px;
-        opacity: 0;
-      }
-      textarea + span {
-        display: block;
-      }
-      textarea:focus {
+      
+      .sheet-character-sheet {
+        height: 100%;
         position: relative;
-        left: auto;
-        opacity: 1;
+        font-family: sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 5px 5px 275px 5px;
       }
-      textarea:focus + span {
+      
+      input, textarea, label, h2, h3 {
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: capitalize;
+      }
+      input, textarea {
+        text-transform: none;
+      }
+      input::placeholder, textarea::placeholder {
+        text-transform: capitalize;
+      }
+      
+      input {
+        padding: 1px 0;
+        font-weight: bold;
+        color: black;
+      }
+      
+      .sheet-align-left {
+        text-align: left!important;
+      }
+      
+      .sheet-group {
+        border-radius: 5px;
+        border: 1px solid #c0c0c0;
+        margin: 0 0 20px 0;
+        padding: 15px 10px;
+        position: relative;
+        
+        .sheet-row {
+          display:flex;
+        }
+        .sheet-attribute-simple, 
+        .sheet-attribute-with-card {
+          input, label {
+            flex-grow: 1;
+            flex-basis: 50%;
+          }
+        }
+        .sheet-attribute-combat {
+          input, label {
+            flex-grow: 1;
+            flex-basis: 33.33333333333%;
+          }
+        }
+      
+        h2 {
+          text-align: center;
+          font-weight: 400;
+          display: inline-block;
+          background: white;
+          position: absolute;
+          margin: 0;
+          top: 0;
+          left: 50%;
+          padding: 0 5px;
+          transform: translate(-50%,-50%);
+          color: #ab3131;
+          font-weight: 600;
+        }
+        
+        label {
+          font-weight: normal;
+          margin-bottom: 0;
+          width: auto;
+          &:after {
+            content: ':';
+          }
+        }
+      
+        .sheet-p-rel {
+          position: relative;
+          top: 0;
+          left: 0;
+          transform: none;
+        }
+      
+        input[type="text"], input[type="number"] {
+          width: 100%;
+          box-sizing: border-box;
+          box-sizing: border-box;
+          text-align: right;
+          border: 0;
+          font-weight: bold;
+          font-family: sans-serif;
+          outline: none;
+          &.sheet-al {
+            text-align: left;
+          }
+          &::placeholder {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: normal;
+            color: black;
+          }
+        }
+      
+        textarea {
+          width: 100%;
+          box-sizing: border-box;
+          border: 0;
+          resize: vertical;
+          padding: 0;
+          outline: none;
+        }
+      
+        .sheet-row {
+          border-bottom: 1px solid #DDD;
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+      
+      
+      .sheet-abilities {
+        h3 {
+          background: #eee;
+          width: 100%;
+          border-radius: 5px;
+          padding: 0;
+          text-align: center;
+          margin: 0;
+        }
+      
+        .sheet-ability-score {
+          input {
+            text-align: left!important;
+            font-size: 36px;
+          }
+          &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: block;
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: contain;
+            opacity: 0.1;
+            top: 0;
+            right: 0;
+            pointer-events: none;
+          }
+      
+          &.sheet-agility:after {
+            background-image: url('#{$externalImgsPath}codes/code-agility-new.png');
+          }
+          &.sheet-dexterity:after {
+            background-image: url('#{$externalImgsPath}codes/code-dexterity-new.png');
+          }
+          &.sheet-endurance:after {
+            background-image: url('#{$externalImgsPath}codes/code-endurance-new.png');
+          }
+          &.sheet-strength:after {
+            background-image: url('#{$externalImgsPath}codes/code-strength-new-2.png');
+          }
+          &.sheet-reason:after {
+            background-image: url('#{$externalImgsPath}codes/code-reason-new.png');
+          }
+          &.sheet-perception:after {
+            background-image: url('#{$externalImgsPath}codes/code-perception-new.png');
+          }
+          &.sheet-spirit:after {
+            background-image: url('#{$externalImgsPath}codes/code-spirit-new.png');
+          }
+          &.sheet-presence:after {
+            background-image: url('#{$externalImgsPath}codes/code-presence-new.png');
+          }
+        }
+      
+        .sheet-ability-codes {
+          padding-top: 0px;
+        }
+        .sheet-ability-code {
+          .sheet-flex-container {
+            justify-content: flex-start;
+            width: 100%;
+          }
+          input {
+            flex-grow: 0;
+            flex-basis: 50%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 20px;
+            outline: none;
+            text-align: center;
+            border: 0;
+            margin: 0;
+            &[value=A] {
+              &:after {
+                content: 'A';
+              }
+            }
+            &[value=B] {
+              &:after {
+                content: 'B';
+              }
+            }
+            &[value=C] {
+              &:after {
+                content: 'C';
+              }
+            }
+            &[value=D] {
+              &:after {
+                content: 'D';
+              }
+            }
+            &[value=X] {
+              &:after {
+                content: 'X';
+              }
+            }
+          }
+          input:checked {
+            background: #333;
+            color: white;
+            border-radius: 3px;
+            &:after {
+              font-weight: bold;
+              font-family: sans-serif;
+            }
+          } 
+        }
+      }
+      
+      .sheet-modal {
+        width: 50%;
+        min-width: 340px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.35);
+        padding: 15px;
+        background: white;
+        z-index: 2;
+        border: 0;
+        border-radius: 5x;
+        margin-bottom: 0;
+        text-align: left;
+        position: relative;
+        pointer-events: all;
+        label:after {
+          content: none;
+        }
+        .sheet-steps, .sheet-navigation {
+          position: relative;
+          z-index: 1;
+        }
+        .sheet-steps > div {
+          display: none;
+        }
+        h2 {
+          position: relative;
+          width: calc(100% + 30px);
+          padding: 20px 10px;
+          top: 0;
+          left: 0;
+          margin-top: -15px;
+          margin-left: -15px;
+          display: block;
+          transform: none;
+          font-size: 18px;
+          font-weight: bold;
+          border-bottom: 1px solid #CCC;
+          background: transparent;
+          pointer-events: none;
+          color: #333
+        }
+        h3 {
+          margin: 10px 0;
+          color: #ab3131
+        }
+        .sheet-spell-cost h3 {
+          color: #453f3f;
+          text-transform: uppercase;
+          font-weight: normal;
+          span {
+            font-weight: 600;
+          }
+        }
+        p {
+          margin-top: 10px;
+        }
+        @for $i from 1 through 9 {
+          input[name="attr_spell_step"][value="#{$i}"] ~ .sheet-steps {
+            .sheet-step-#{$i}:not(.sheet-0):not(.sheet-1):not(.sheet-2) {
+              display: block;
+            }
+          }
+        }
+        @for $i from 0 through 2 {
+          input[name="attr_spell_step"][value="6"] ~ input[name="attr_spell_area_of_effect"][value="#{$i}"] ~ .sheet-steps {
+            .sheet-step-6.sheet-#{$i} {
+              display: block;
+            }
+          }
+        }
+        @for $i from 0 through 2 {
+          input[name="attr_spell_step"][value="8"] ~ input[name="attr_spell_effect"][value="#{$i}"] ~ .sheet-steps {
+            .sheet-step-8.sheet-#{$i} {
+              display: block;
+            }
+          }
+        }
+      
+        input[type="radio"] {
+          margin-right: 5px;
+          vertical-align: middle;
+        }
+        label {
+          margin-top: 10px;
+        }
+        .sheet-attribute-pick {
+          display: flex;
+          border-bottom: 0;
+          label, span {
+            flex-grow: 1;
+            flex-basis: 50%;
+          }
+          label {
+            margin-top: 0px;
+          }
+          span {
+            text-align: right;
+          }
+          label:after {
+            content: none;
+          }
+          input {
+            margin-right: 5px;
+            vertical-align: middle;
+          }
+          &:not(:first-child) {
+            margin-top: 10px;
+          }
+        }
+        .sheet-navigation {
+          grid-column-gap: 10px;
+          grid-row-gap: 10px;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+      }
+      .sheet-blocker {
+        background: rgba(255, 255, 255, 0.75);
+        width: calc(100% + 10px);
+        height: calc(100% + 10px);
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        z-index: 1;
+        cursor: pointer;
+        pointer-events: all;
+      }
+      
+      .sheet-blocking-modal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh;
+        background: transparent;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 15;
+        pointer-events: none;
+      }
+      
+      input[name="attr_designing_spell"][value="0"] ~ .sheet-blocking-modal {
+          display: none;
+      }
+      
+      .sheet-step-1 {
+        input {
+          border-bottom: 1px solid #DDD!important;
+          padding: 10px 0;
+          margin: 5px 0 20px 0;
+        }
+      }
+      
+      button.sheet-save {
+        display: none;
+      }
+      
+      input[name="attr_spell_step"][value="9"] ~ .sheet-navigation {
+        button.sheet-save {
+          display: block;
+        }
+        button.sheet-next {
+          display: none;
+        }
+      }
+      
+      .sheet-spells {
+        width: calc(100% + 10px);
+        margin-left: -5px;
+        .repcontainer {
+          display:flex;
+          flex-direction: row-reverse;
+          .repitem {
+            flex-grow: 1;
+            flex-basis: 50%;
+            padding: 10px;
+            border: 1px solid #DDD;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 5px;
+            input, textarea {
+              width: 100%;
+              padding: 0;
+              border: 0;
+              &:focus {
+                padding: 5px;
+                border: 1px solid #ccc;
+              }
+            }
+            textarea {
+              position: absolute;
+              left: 10px;
+              opacity: 0;
+            }
+            textarea + span {
+              display: block;
+            }
+            textarea:focus {
+              position: relative;
+              left: auto;
+              opacity: 1;
+            }
+            textarea:focus + span {
+              display: none;
+            }
+      
+          }
+        }
+        .repcontrol {
+          display: none;
+        }
+      }
+      
+      textarea {
+        margin-bottom: -5px!important;
+      }
+      
+      span.sheet-max {
+        font-weight: 600;
+        margin-left: 3px;
+        &:before {
+          content: '(';
+        }
+        &:after {
+          content: ')';
+        }
+      }
+      
+      button:not(.sheet-blocker) {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+        background: #fff;
+        color: #333;
+        border: 1px solid #acacac;
+        font-weight: 600;
+        &:hover {
+          border: 1px solid #333;
+          background: #333;
+          color: #fff;
+        }
+      }
+      
+      button.sheet-primary {
+        border: 1px solid #ab3131;
+        background: #fff;
+        color: #ab3131;
+        &:hover {
+          border: 1px solid #ab3131;
+          background: #ab3131;
+          color: #fff;
+        }
+      }
+      
+      .sheet-fatedeck {
+        padding: 0 5px;
+        bottom: 0px;
+        left: 5px;
+        position: fixed;
+        height: 290px;
+        width: calc(100% - 10px);
+        z-index: 10;
+        pointer-events: none;
+        .repeating_cards ~ .repcontainer {
+          position: relative;
+          height: 286px;
+          white-space: nowrap;
+          .repitem {
+            display: inline-block;
+            width: 200px;
+            height: 286px;
+            pointer-events: all;
+          }
+        }
+        input[name="attr_player_hand_size"] ~ .repcontainer {
+          .repitem {
+            max-width: 200px;
+            width: 200px;
+            transition: all 0.25s ease-out;
+          }
+        }
+        @for $i from 2 through 10 {
+          input[name="attr_player_hand_size"][value="#{$i}"] ~ .repcontainer {
+            $prev: $i - 1;
+            .repitem:not(:first-child) {
+              width: calc(calc(100% - 200px) / #{$prev});
+              max-width: 210px;
+            }
+          }
+        }
+        input[name="attr_player_hand_size"] ~ .repcontainer .repitem:first-child {
+          .sheet-card {
+            margin-left: 0;
+          }
+        }
+        input[name="attr_player_hand_size"] ~ .repcontainer .repitem:hover {
+          transform: translateY(-25%);
+        }
+        .sheet-card {
+          width: 200px;
+          height: 286px;
+          margin-left: calc(100% - 200px);
+          display: inline-block;
+          .sheet-discard {
+            display: none;
+            position: absolute;
+            top: -40px;
+            left: 0;
+          }
+          &:hover {
+            .sheet-discard {
+              display: block;
+            }
+          }
+          .sheet-mask {
+            overflow: hidden;
+            width: 200px;
+            height: 286px;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+          }
+          .sheet-texture {
+            position: absolute;
+            background-image: url('#{$externalImgsPath}fatedeck/fate_deck.jpg');
+            background-position: top left;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 1000%;
+            height: 900%;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            cursor: default;
+          }
+          @for $i from 1 through 8 {
+            input[name='attr_suit'][value='#{$i}'] ~ .sheet-mask .sheet-texture {
+              top: calc(-100% * #{$i});
+            }
+          }
+          @for $i from 1 through 10 {
+            input[name='attr_value'][value='#{$i}'] ~ .sheet-mask .sheet-texture {
+              $prev: $i - 1;
+              left: calc(-100% * #{$prev});
+            }
+          }
+        }
+        
+        .repitem .sheet-card .sheet-draw {
+          display: none;
+        }
+        .repitem:first-child {
+          top: -10px;
+          .sheet-card {
+            .sheet-draw {
+              display: block;
+            }
+            .sheet-discard {
+              display: none;
+            }
+          }
+        }
+        
+        button.sheet-draw {
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          margin-top: -286px;
+        }
+      }
+      
+      .repcontrol {
         display: none;
       }
 
+      .physical-description {
+        padding-left: 195px;
+        min-height: 260px;
+        .sheet-grid-container {
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr))!important;
+        }
+        textarea {
+          height: 80px!important;
+          resize: none;
+        }
+      }
+
     }
   }
-  .repcontrol {
-    display: none;
-  }
-}
-
-textarea {
-  margin-bottom: -5px!important;
-}
-
-span.sheet-max {
-  font-weight: 600;
-  margin-left: 3px;
-  &:before {
-    content: '(';
-  }
-  &:after {
-    content: ')';
-  }
-}
-
-button:not(.sheet-blocker) {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  outline: none;
-  background: #fff;
-  color: #333;
-  border: 1px solid #acacac;
-  font-weight: 600;
-  &:hover {
-    border: 1px solid #333;
-    background: #333;
-    color: #fff;
-  }
-}
-
-button.sheet-primary {
-  border: 1px solid #ab3131;
-  background: #fff;
-  color: #ab3131;
-  &:hover {
-    border: 1px solid #ab3131;
-    background: #ab3131;
-    color: #fff;
-  }
-}
-
-.repeating_cards ~ .repcontainer {
-  position: relative;
-  height: 286px;
-  white-space: nowrap;
-  .repitem {
-    display: inline-block;
-    width: 200px;
-    height: 286px;
-  }
-}
-input[name="attr_player_hand_size"] ~ .repcontainer {
-  .repitem {
-    max-width: 200px;
-    width: 200px;
-    transition: all 0.5s ease-out;
-  }
-}
-@for $i from 2 through 10 {
-  input[name="attr_player_hand_size"][value="#{$i}"] ~ .repcontainer {
-    $prev: $i - 1;
-    .repitem:not(:first-child) {
-      width: calc(calc(100% - 200px) / #{$prev});
-      max-width: 210px;
-    }
-  }
-}
-input[name="attr_player_hand_size"] ~ .repcontainer .repitem:first-child {
-  .sheet-card {
-    margin-left: 0;
-  }
-}
-input[name="attr_player_hand_size"] ~ .repcontainer .repitem:hover {
-  transform: translateY(-25%);
-}
-.sheet-card {
-  width: 200px;
-  height: 286px;
-  margin-left: calc(100% - 200px);
-  display: inline-block;
-  .sheet-discard {
-    display: none;
-    position: absolute;
-    top: -40px;
-    left: 0;
-  }
-  &:hover {
-    .sheet-discard {
-      display: block;
-    }
-  }
-  .sheet-mask {
-    overflow: hidden;
-    width: 200px;
-    height: 286px;
-    position: relative;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  }
-  .sheet-texture {
-    position: absolute;
-    background-image: url('#{$externalImgsPath}fatedeck/fate_deck.jpg');
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 1000%;
-    height: 900%;
-    left: 0;
-    top: 0;
-    pointer-events: none;
-    cursor: default;
-  }
-  @for $i from 1 through 8 {
-    input[name='attr_suit'][value='#{$i}'] ~ .sheet-mask .sheet-texture {
-      top: calc(-100% * #{$i});
-    }
-  }
-  @for $i from 1 through 10 {
-    input[name='attr_value'][value='#{$i}'] ~ .sheet-mask .sheet-texture {
-      $prev: $i - 1;
-      left: calc(-100% * #{$prev});
-    }
-  }
-}
-
-.repitem .sheet-card .sheet-draw {
-  display: none;
-}
-.repitem:first-child .sheet-card {
-  .sheet-draw {
-    display: block;
-  }
-  .sheet-discard {
-    display: none;
-  }
-}
-
-button.sheet-draw {
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  margin-top: -286px;
-}
-.repcontrol {
-  display: none;
 }

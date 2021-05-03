@@ -215,7 +215,7 @@
       </div>
       <div class="sheet-step-7">
         <h3>effect</h3>
-        <div class="options">
+        <div class="sheet-options">
           <label>
             <input name="attr_spell_effect" type="radio" value="0" checked="checked"/>numeric adjustments
           </label>
@@ -679,23 +679,23 @@
     </div>
   </div>
 </div>
-<div style="padding: 0 5px;">
+<div class="sheet-fatedeck">
   <input type="hidden" name="attr_player_hand" value=""/>
   <input type="hidden" name="attr_player_hand_size" value=""/>
   <input type="hidden" name="attr_graveyard" value=""/>
   <fieldset class="repeating_cards">
-    <div class="card">
+    <div class="sheet-card">
       <input type="hidden" name="attr_color"/>
       <input type="hidden" name="attr_suit"/>
       <input type="hidden" name="attr_demeanor"/>
       <input type="hidden" name="attr_nature"/>
       <input type="hidden" name="attr_value"/>
       <input type="hidden" name="attr_name"/>
-      <button class="discard" type="action" name="act_discard">Discard</button>
-      <div class="mask">
-        <div class="texture"></div>
+      <button class="sheet-discard" type="action" name="act_discard">Discard</button>
+      <div class="sheet-mask">
+        <div class="sheet-texture"></div>
       </div>
-      <button class="draw" type="action" name="act_draw"></button>
+      <button class="sheet-draw" type="action" name="act_draw"></button>
     </div>
   </fieldset>
 </div>
